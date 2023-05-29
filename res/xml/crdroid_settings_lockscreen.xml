@@ -24,6 +24,10 @@
         android:key="lockscreen_clock_category"
         android:title="@string/lockscreen_clock_category_title">
 
+        <Preference
+        android:key="lockscreen_preview"
+        settings:layout="@layout/lockscreen_preview" />
+
         <!-- Lockscreen Clock -->
         <com.android.settings.preferences.ui.AdaptivePreference
             android:key="android.theme.customization.lockscreen_clock_font"
