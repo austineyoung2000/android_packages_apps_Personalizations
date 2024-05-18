@@ -160,7 +160,7 @@
             android:defaultValue="true"
             lineage:isLineageSettings="true" />
             
-        <com.crdroid.settings.preferences.SecureSettingSwitchPreference
+        <com.crdroid.settings.preferences.SystemSettingSwitchPreference
             android:key="qs_brightness_slider_haptic"
             android:title="@string/qs_brightness_slider_haptic_title"
             android:summary="@string/qs_brightness_slider_haptic_summary"
