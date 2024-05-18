@@ -152,18 +152,19 @@
             lineage:isLineageSettings="true"
             android:defaultValue="0" />
 
-        <com.crdroid.settings.preferences.SystemSettingSwitchPreference
-            android:key="qs_brightness_slider_haptic"
-            android:icon="@drawable/ic_brightness"
-            android:title="@string/qs_brightness_slider_haptic_title"
-            android:summary="@string/qs_brightness_slider_haptic_summary"/>
 
-        <lineageos.preference.LineageSecureSettingSwitchPreference
+        <com.crdroid.settings.preferences.SecureSettingSwitchPreference
             android:key="qs_show_auto_brightness"
             android:title="@string/qs_show_auto_brightness_title"
             android:summary="@string/qs_show_auto_brightness_summary"
             android:defaultValue="true"
-            lineage:isLineageSettings="true"
+            lineage:isLineageSettings="true" />
+            
+        <com.crdroid.settings.preferences.SecureSettingSwitchPreference
+            android:key="qs_brightness_slider_haptic"
+            android:title="@string/qs_brightness_slider_haptic_title"
+            android:summary="@string/qs_brightness_slider_haptic_summary"
+            android:defaultValue="true"
             lineage:position="bottom" />
 
     </PreferenceCategory>
