@@ -51,9 +51,8 @@
         android:defaultValue="true" />
 
     <!-- Toast Notification -->
-    <com.android.settings.preferences.ui.AdaptivePreference
+    <com.crdroid.settings.preferences.SystemSettingListPreference
         android:key="toast_animation"
-        android:icon="@drawable/ic_clipboard_alert"
         android:title="@string/toast_animation_title"
         android:entries="@array/toast_animation_entries"
         android:entryValues="@array/toast_animation_values"
