@@ -1925,6 +1925,10 @@
     <string name="google_spoof_summary">Spoof a few google apps to latest pixel device</string>
     <string name="google_spoof_option_disabled">Enabling Google apps spoofing is not needed by current device</string>
 
+    <!-- Spoof Snapchat props -->
+    <string name="spoofing_snapchat_title">Snapchat spoof</string>
+    <string name="spoofing_snapchat_summary">Spoof Snapchat as a Pixel XL to allow original quality captures</string>
+
     <!-- Backup/Restore settings -->
     <string name="backup_restore_title">Backup and Restore</string>
     <string name="backup_restore_title_summary">Backup current personalization settings or restore previous ones</string>
@@ -1952,4 +1956,24 @@
 
     <!-- Boot Animation Style Strings -->
     <string name="boot_animation_styles_summary">Choose a style for your boot animation</string>
+
+    <!-- Power menu Animations  -->
+    <string name="power_menu_animation_title">Power menu animation</string>
+    <string name="power_menu_animation_dialog_title">Select power menu animation</string>
+    <string name="power_menu_animation_aosp">AOSP (default)</string>
+    <string name="power_menu_animation_bottom">Bottom</string>
+    <string name="power_menu_animation_top">Top</string>
+    <string name="power_menu_animation_xylon">Fly</string>
+    <string name="power_menu_animation_slide">Slide</string>
+    <string name="power_menu_animation_turn">Turn</string>
+    <string name="power_menu_animation_fly">Glow</string>
+    <string name="power_menu_animation_card">3D</string>
+    <string name="power_menu_animation_translucent_top">Translucent (top)</string>
+    <string name="power_menu_animation_translucent_bottom">Translucent (bottom)</string>
+    <string name="power_menu_animation_rotate">Rotate</string>
+
+    <!-- Power menu and dialogs opacity -->
+    <string name="panel_porn_title">Power menu extras</string>
+    <string name="power_menu_transparency">Power/reboot menu opacity</string>
+    <string name="power_menu_dialog_dim">Power/reboot dialog dim background amount</string>
 </resources>
