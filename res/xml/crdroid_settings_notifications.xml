@@ -48,7 +48,16 @@
         android:key="show_clipboard_overlay"
         android:title="@string/show_clipboard_overlay_title"
         android:summary="@string/show_clipboard_overlay_summary"
-        android:defaultValue="true"
+        android:defaultValue="true" />
+
+    <!-- Toast Notification -->
+    <com.android.settings.preferences.ui.AdaptivePreference
+        android:key="toast_animation"
+        android:icon="@drawable/ic_clipboard_alert"
+        android:title="@string/toast_animation_title"
+        android:entries="@array/toast_animation_entries"
+        android:entryValues="@array/toast_animation_values"
+        android:persistent="false"
         lineage:position="bottom"/>
 
     <PreferenceCategory
