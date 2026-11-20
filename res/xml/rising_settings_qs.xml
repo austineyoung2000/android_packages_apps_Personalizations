@@ -71,7 +71,31 @@
             android:key="qs_inactive_label_color"
             android:title="@string/qs_inactive_label_color_title"
             android:defaultValue="0xffffffff"
-            android:dependency="qs_inactive_label_color_enabled"
+            android:dependency="qs_inactive_label_color_enabled" />
+
+        <com.android.settings.preferences.SystemSettingSwitchPreference
+            android:key="qs_active_secondary_label_color_enabled"
+            android:title="@string/qs_active_secondary_label_color_enabled_title"
+            android:summary="@string/qs_label_color_enabled_summary"
+            android:defaultValue="false" />
+
+        <com.android.settings.preferences.colorpicker.SystemSettingColorPickerPreference
+            android:key="qs_active_secondary_label_color"
+            android:title="@string/qs_active_secondary_label_color_title"
+            android:defaultValue="0xff000000"
+            android:dependency="qs_active_secondary_label_color_enabled" />
+
+        <com.android.settings.preferences.SystemSettingSwitchPreference
+            android:key="qs_inactive_secondary_label_color_enabled"
+            android:title="@string/qs_inactive_secondary_label_color_enabled_title"
+            android:summary="@string/qs_label_color_enabled_summary"
+            android:defaultValue="false" />
+
+        <com.android.settings.preferences.colorpicker.SystemSettingColorPickerPreference
+            android:key="qs_inactive_secondary_label_color"
+            android:title="@string/qs_inactive_secondary_label_color_title"
+            android:defaultValue="0xffffffff"
+            android:dependency="qs_inactive_secondary_label_color_enabled"
             lineage:position="bottom" />
     </PreferenceCategory>
 
