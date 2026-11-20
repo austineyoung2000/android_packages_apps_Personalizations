@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="status_bar_clock_custom_color_enabled_title">Custom clock text color</string>
+    <string name="status_bar_clock_custom_color_summary">Use a custom color instead of the automatic theme color</string>
+    <string name="status_bar_clock_custom_color_title">Clock text color</string>
+</resources>
