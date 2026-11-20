@@ -46,6 +46,36 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:title="@string/qs_label_colors_title">
+
+        <com.android.settings.preferences.SystemSettingSwitchPreference
+            android:key="qs_active_label_color_enabled"
+            android:title="@string/qs_active_label_color_enabled_title"
+            android:summary="@string/qs_label_color_enabled_summary"
+            android:defaultValue="false"
+            lineage:position="top" />
+
+        <com.android.settings.preferences.colorpicker.SystemSettingColorPickerPreference
+            android:key="qs_active_label_color"
+            android:title="@string/qs_active_label_color_title"
+            android:defaultValue="0xff000000"
+            android:dependency="qs_active_label_color_enabled" />
+
+        <com.android.settings.preferences.SystemSettingSwitchPreference
+            android:key="qs_inactive_label_color_enabled"
+            android:title="@string/qs_inactive_label_color_enabled_title"
+            android:summary="@string/qs_label_color_enabled_summary"
+            android:defaultValue="false" />
+
+        <com.android.settings.preferences.colorpicker.SystemSettingColorPickerPreference
+            android:key="qs_inactive_label_color"
+            android:title="@string/qs_inactive_label_color_title"
+            android:defaultValue="0xffffffff"
+            android:dependency="qs_inactive_label_color_enabled"
+            lineage:position="bottom" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="qs_layout_category"
         android:title="@string/qs_tile_layout_title">
 

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="qs_label_colors_title">Tile label colors</string>
+    <string name="qs_active_label_color_enabled_title">Custom active label color</string>
+    <string name="qs_inactive_label_color_enabled_title">Custom inactive label color</string>
+    <string name="qs_label_color_enabled_summary">Use a custom color instead of the theme color</string>
+    <string name="qs_active_label_color_title">Active label color</string>
+    <string name="qs_inactive_label_color_title">Inactive label color</string>
+</resources>
