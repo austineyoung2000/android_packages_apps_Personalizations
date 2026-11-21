@@ -239,6 +239,15 @@
              android:summary="@string/qqs_show_media_summary"
              android:defaultValue="1" />
 
+        <com.android.settings.preferences.SystemSettingSeekBarPreference
+             android:key="qs_expanded_icon_position"
+             android:title="@string/qs_expanded_icon_position_title"
+             android:summary="@string/qs_expanded_icon_position_summary"
+             android:max="80"
+             settings:min="0"
+             settings:interval="1"
+             android:defaultValue="40" />
+
         <com.android.settings.preferences.SystemSettingListPreference
              android:key="qs_header_clock_style"
              android:title="@string/qs_header_clock_style_title"
