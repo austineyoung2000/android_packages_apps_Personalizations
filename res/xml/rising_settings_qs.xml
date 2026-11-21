@@ -103,7 +103,19 @@
             android:key="qs_inactive_background_color"
             android:title="@string/qs_inactive_background_title"
             android:defaultValue="0xff55555f"
-            android:dependency="qs_inactive_background_color_enabled"
+            android:dependency="qs_inactive_background_color_enabled" />
+
+        <com.android.settings.preferences.SystemSettingSwitchPreference
+            android:key="qs_inactive_gradient_enabled"
+            android:title="@string/qs_inactive_gradient_enabled_title"
+            android:defaultValue="false"
+            android:dependency="qs_inactive_background_color_enabled" />
+
+        <com.android.settings.preferences.colorpicker.SystemSettingColorPickerPreference
+            android:key="qs_inactive_gradient_end_color"
+            android:title="@string/qs_inactive_background_second_title"
+            android:defaultValue="0xff0000ff"
+            android:dependency="qs_inactive_gradient_enabled"
             lineage:position="bottom" />
     </PreferenceCategory>
 
