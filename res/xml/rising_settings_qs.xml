@@ -197,7 +197,19 @@
              android:key="qs_header_clock_color"
              android:title="@string/qs_header_clock_color_title"
              android:defaultValue="0xffffffff"
-             android:dependency="qs_header_clock_color_enabled"
+             android:dependency="qs_header_clock_color_enabled" />
+
+        <com.android.settings.preferences.SystemSettingSwitchPreference
+             android:key="qs_header_date_color_enabled"
+             android:title="@string/qs_header_date_color_enabled_title"
+             android:summary="@string/qs_label_color_enabled_summary"
+             android:defaultValue="false" />
+
+        <com.android.settings.preferences.colorpicker.SystemSettingColorPickerPreference
+             android:key="qs_header_date_color"
+             android:title="@string/qs_header_date_color_title"
+             android:defaultValue="0xffffffff"
+             android:dependency="qs_header_date_color_enabled"
              lineage:position="bottom" />
 
     </PreferenceCategory>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="qs_header_date_color_enabled_title">Custom header date color</string>
+    <string name="qs_header_date_color_title">Header date color</string>
+</resources>
