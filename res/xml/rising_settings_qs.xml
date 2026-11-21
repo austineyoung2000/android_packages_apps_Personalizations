@@ -120,6 +120,54 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:title="@string/qs_brightness_appearance_title">
+
+        <com.android.settings.preferences.SystemSettingListPreference
+            android:key="qs_brightness_style"
+            android:title="@string/qs_brightness_style_title"
+            android:entries="@array/qs_compose_tile_style_entries"
+            android:entryValues="@array/qs_compose_tile_style_values"
+            android:defaultValue="0"
+            android:summary="%s"
+            lineage:position="top" />
+
+        <com.android.settings.preferences.SystemSettingSwitchPreference
+            android:key="qs_brightness_color_enabled"
+            android:title="@string/qs_brightness_color_enabled_title"
+            android:defaultValue="false" />
+
+        <com.android.settings.preferences.colorpicker.SystemSettingColorPickerPreference
+            android:key="qs_brightness_color"
+            android:title="@string/qs_brightness_color_first_title"
+            android:defaultValue="0xff6200ee"
+            android:dependency="qs_brightness_color_enabled" />
+
+        <com.android.settings.preferences.SystemSettingSwitchPreference
+            android:key="qs_brightness_gradient_enabled"
+            android:title="@string/qs_brightness_gradient_title"
+            android:defaultValue="false"
+            android:dependency="qs_brightness_color_enabled" />
+
+        <com.android.settings.preferences.colorpicker.SystemSettingColorPickerPreference
+            android:key="qs_brightness_gradient_end_color"
+            android:title="@string/qs_brightness_color_second_title"
+            android:defaultValue="0xff0000ff"
+            android:dependency="qs_brightness_gradient_enabled" />
+
+        <com.android.settings.preferences.SystemSettingSwitchPreference
+            android:key="qs_brightness_track_color_enabled"
+            android:title="@string/qs_brightness_track_enabled_title"
+            android:defaultValue="false" />
+
+        <com.android.settings.preferences.colorpicker.SystemSettingColorPickerPreference
+            android:key="qs_brightness_track_color"
+            android:title="@string/qs_brightness_track_title"
+            android:defaultValue="0xff0000ff"
+            android:dependency="qs_brightness_track_color_enabled"
+            lineage:position="bottom" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:title="@string/qs_label_colors_title">
 
         <com.android.settings.preferences.SystemSettingSwitchPreference
