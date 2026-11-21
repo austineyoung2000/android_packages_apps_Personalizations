@@ -46,6 +46,38 @@
         lineage:position="bottom" />
 
     <PreferenceCategory
+        android:title="@string/notification_card_appearance_title">
+
+        <com.android.settings.preferences.SystemSettingListPreference
+            android:key="notification_card_style"
+            android:title="@string/notification_card_style_title"
+            android:entries="@array/qs_compose_tile_style_entries"
+            android:entryValues="@array/qs_compose_tile_style_values"
+            android:defaultValue="0"
+            android:summary="%s"
+            lineage:position="top" />
+
+        <com.android.settings.preferences.SystemSettingListPreference
+            android:key="notification_card_color_mode"
+            android:title="@string/notification_card_color_mode_title"
+            android:entries="@array/notification_card_color_mode_entries"
+            android:entryValues="@array/notification_card_color_mode_values"
+            android:defaultValue="0"
+            android:summary="%s" />
+
+        <com.android.settings.preferences.colorpicker.SystemSettingColorPickerPreference
+            android:key="notification_card_color_first"
+            android:title="@string/notification_card_color_first_title"
+            android:defaultValue="0xffff00ff" />
+
+        <com.android.settings.preferences.colorpicker.SystemSettingColorPickerPreference
+            android:key="notification_card_color_second"
+            android:title="@string/notification_card_color_second_title"
+            android:defaultValue="0xff0000ff"
+            lineage:position="bottom" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="heads_up"
         android:title="@string/notification_heads_up_title">
 
