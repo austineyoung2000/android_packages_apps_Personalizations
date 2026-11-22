@@ -91,6 +91,17 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:title="@string/rising_stacks_title">
+
+        <com.android.settings.preferences.SystemSettingSwitchPreference
+            android:key="rising_stacks_enabled"
+            android:title="@string/rising_stacks_title"
+            android:summary="@string/rising_stacks_summary"
+            android:defaultValue="false"
+            lineage:position="top" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="lockscreen_gestures_category"
         android:title="@string/gestures_title">
 

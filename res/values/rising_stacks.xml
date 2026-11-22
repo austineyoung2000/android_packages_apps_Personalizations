@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="rising_stacks_title">Rising Stacks</string>
+    <string name="rising_stacks_summary">Group lock screen notifications by app</string>
+</resources>
