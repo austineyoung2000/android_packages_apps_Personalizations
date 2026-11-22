@@ -99,6 +99,14 @@
             android:summary="@string/rising_stacks_summary"
             android:defaultValue="false"
             lineage:position="top" />
+
+        <ListPreference
+            android:key="rising_stacks_icon_pack_picker"
+            android:title="@string/rising_stacks_icon_pack_title"
+            android:summary="@string/rising_stacks_icon_pack_summary"
+            android:dependency="rising_stacks_enabled"
+            android:persistent="false"
+            lineage:position="bottom" />
     </PreferenceCategory>
 
     <PreferenceCategory

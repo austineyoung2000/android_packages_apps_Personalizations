@@ -17,6 +17,8 @@ package com.rising.settings.fragments
 
 import android.content.ContentResolver
 import android.content.Context
+import android.content.Intent
+import android.os.UserHandle
 import android.content.res.Resources
 import android.hardware.face.FaceManager
 import android.hardware.fingerprint.FingerprintManager
@@ -25,6 +27,7 @@ import android.provider.Settings
 import android.text.TextUtils
 import android.util.Log
 import androidx.preference.Preference
+import androidx.preference.ListPreference
 import androidx.preference.PreferenceCategory
 import androidx.preference.PreferenceScreen
 import com.android.internal.logging.nano.MetricsProto
@@ -185,8 +188,53 @@ class LockScreen : OptimizedSettingsFragment() {
 
     override fun onResume() {
         super.onResume()
+        updateRisingStacksIconPacks()
     }
     
+
+    private fun updateRisingStacksIconPacks() {
+        val ctx = context ?: return
+        val pref = findPreference<ListPreference>("rising_stacks_icon_pack_picker") ?: return
+        val pm = ctx.packageManager
+        val packs = linkedMapOf<String, String>()
+        val actions = listOf(
+            "org.adw.launcher.THEMES",
+            "com.novalauncher.THEME",
+            "com.anddoes.launcher.THEME",
+            "com.gau.go.launcherex.theme"
+        )
+        actions.forEach { action ->
+            pm.queryIntentActivities(Intent(action), 0).forEach results@ { result ->
+                val info = result.activityInfo?.applicationInfo ?: return@results
+                packs[info.packageName] = info.loadLabel(pm).toString()
+            }
+        }
+        val options = packs.entries.sortedBy { it.value.lowercase() }
+        val saved = Settings.System.getStringForUser(
+            ctx.contentResolver, "rising_stacks_icon_pack", UserHandle.USER_CURRENT
+        ).orEmpty()
+        val names = mutableListOf(getString(R.string.rising_stacks_icon_pack_default))
+        val values = mutableListOf("")
+        options.forEach { names.add(it.value); values.add(it.key) }
+        if (saved.isNotEmpty() && saved !in values) {
+            names.add(saved)
+            values.add(saved)
+        }
+        pref.entries = names.toTypedArray()
+        pref.entryValues = values.toTypedArray()
+        pref.value = saved
+        pref.summary = names[values.indexOf(saved)]
+        pref.setOnPreferenceChangeListener { _, newValue ->
+            val selected = newValue as String
+            val success = Settings.System.putStringForUser(
+                ctx.contentResolver, "rising_stacks_icon_pack",
+                selected.ifEmpty { null }, UserHandle.USER_CURRENT
+            )
+            if (success) pref.summary = names[values.indexOf(selected)]
+            success
+        }
+    }
+
     override fun onDestroy() {
         super.onDestroy()
     }
