@@ -10,4 +10,12 @@
     <string name="qs_inactive_background_title">First inactive color</string>
     <string name="qs_inactive_gradient_enabled_title">Blend two inactive colors</string>
     <string name="qs_inactive_background_second_title">Second inactive color</string>
+    <string name="qs_active_background_effect_title">Active tile color effect</string>
+    <string name="qs_inactive_background_effect_title">Inactive tile color effect</string>
+    <string-array name="qs_tile_effect_entries">
+        <item>Native</item><item>Solid</item><item>Two-color gradient</item><item>Blur</item><item>Two-color blur</item>
+    </string-array>
+    <string-array name="qs_tile_effect_values" translatable="false">
+        <item>0</item><item>1</item><item>2</item><item>3</item><item>4</item>
+    </string-array>
 </resources>

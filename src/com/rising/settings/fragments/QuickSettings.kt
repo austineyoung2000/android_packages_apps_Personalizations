@@ -17,6 +17,8 @@ package com.rising.settings.fragments
 
 import android.content.Context
 import android.os.Bundle
+import android.os.UserHandle
+import android.provider.Settings
 import com.android.internal.logging.nano.MetricsProto
 import com.android.settings.R
 import com.android.settings.SettingsPreferenceFragment
@@ -44,6 +46,15 @@ class QuickSettings : SettingsPreferenceFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        listOf("active", "inactive").forEach { kind ->
+            val resolver = requireContext().contentResolver
+            val key = "qs_${kind}_background_effect"
+            if (Settings.System.getIntForUser(resolver, key, -1, UserHandle.USER_CURRENT) == -1) {
+                val enabled = Settings.System.getIntForUser(resolver, "qs_${kind}_background_color_enabled", 0, UserHandle.USER_CURRENT) != 0
+                val gradient = Settings.System.getIntForUser(resolver, "qs_${kind}_gradient_enabled", 0, UserHandle.USER_CURRENT) != 0
+                Settings.System.putIntForUser(resolver, key, if (!enabled) 0 else if (gradient) 2 else 1, UserHandle.USER_CURRENT)
+            }
+        }
         addPreferencesFromResource(R.xml.rising_settings_qs)
     }
 
