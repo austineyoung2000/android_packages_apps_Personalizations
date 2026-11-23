@@ -85,6 +85,15 @@
             android:dependency="ambient_peek_enabled"
             android:persistent="false" />
         <com.android.settings.preferences.SystemSettingSeekBarPreference
+            android:key="ambient_peek_max_apps"
+            android:title="@string/ambient_peek_max_apps_title"
+            android:summary="@string/ambient_peek_max_apps_summary"
+            android:defaultValue="6"
+            android:max="6"
+            settings:min="2"
+            settings:interval="1"
+            android:dependency="ambient_peek_enabled" />
+        <com.android.settings.preferences.SystemSettingSeekBarPreference
             android:key="ambient_peek_duration"
             android:title="@string/ambient_peek_duration_title"
             android:summary="@string/ambient_peek_duration_summary"
