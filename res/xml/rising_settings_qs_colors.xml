@@ -5,6 +5,10 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/qs_colors_page_title">
 
+    <com.android.settingslib.widget.IllustrationPreference
+        android:key="lottie_qs_color_style"
+        lineage:lottie_rawRes="@raw/lottie_qs_color_style" />
+
     <PreferenceCategory
         android:title="@string/qs_tile_background_colors_title">
 
