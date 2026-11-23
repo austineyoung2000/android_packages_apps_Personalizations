@@ -18,4 +18,10 @@
     <string-array name="qs_tile_effect_values" translatable="false">
         <item>0</item><item>1</item><item>2</item><item>3</item><item>4</item>
     </string-array>
+    <string name="qs_icon_colors_title">Tile icon colors</string>
+    <string name="qs_active_icon_color_enabled_title">Custom active icon color</string>
+    <string name="qs_inactive_icon_color_enabled_title">Custom inactive icon color</string>
+    <string name="qs_icon_color_enabled_summary">Use a custom color instead of the theme color</string>
+    <string name="qs_active_icon_color_title">Active icon color</string>
+    <string name="qs_inactive_icon_color_title">Inactive icon color</string>
 </resources>
