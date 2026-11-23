@@ -24,4 +24,7 @@
     <string name="qs_icon_color_enabled_summary">Use a custom color instead of the theme color</string>
     <string name="qs_active_icon_color_title">Active icon color</string>
     <string name="qs_inactive_icon_color_title">Inactive icon color</string>
+    <string name="qs_colors_page_title">Color</string>
+    <string name="qs_colors_page_summary">Tile, icon, label, brightness and header colors</string>
+    <string name="qs_header_colors_title">Header colors</string>
 </resources>
