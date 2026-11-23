@@ -78,6 +78,12 @@
             android:summary="@string/ambient_peek_summary"
             android:defaultValue="false"
             app:position="top" />
+        <ListPreference
+            android:key="ambient_peek_icon_pack_picker"
+            android:title="@string/ambient_peek_icon_pack_title"
+            android:summary="@string/ambient_peek_icon_pack_summary"
+            android:dependency="ambient_peek_enabled"
+            android:persistent="false" />
         <com.android.settings.preferences.SystemSettingSeekBarPreference
             android:key="ambient_peek_duration"
             android:title="@string/ambient_peek_duration_title"
