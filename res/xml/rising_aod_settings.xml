@@ -71,6 +71,26 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory android:title="@string/ambient_peek_title">
+        <com.android.settings.preferences.SystemSettingSwitchPreference
+            android:key="ambient_peek_enabled"
+            android:title="@string/ambient_peek_title"
+            android:summary="@string/ambient_peek_summary"
+            android:defaultValue="false"
+            app:position="top" />
+        <com.android.settings.preferences.SystemSettingSeekBarPreference
+            android:key="ambient_peek_duration"
+            android:title="@string/ambient_peek_duration_title"
+            android:summary="@string/ambient_peek_duration_summary"
+            android:defaultValue="8"
+            android:max="30"
+            settings:min="3"
+            settings:interval="1"
+            settings:units="s"
+            android:dependency="ambient_peek_enabled"
+            app:position="bottom" />
+    </PreferenceCategory>
+
     <PreferenceCategory
         android:key="aod_pulse"
         android:title="@string/aod_pulse_category_title">

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ambient_peek_title">Ambient Peek</string>
+    <string name="ambient_peek_summary">Tap a notification icon to show a brief outlined preview on the always-on display. Requires the device’s AOD tap gesture.</string>
+    <string name="ambient_peek_duration_title">Preview duration</string>
+    <string name="ambient_peek_duration_summary">Time before the preview closes</string>
+</resources>
