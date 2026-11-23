@@ -4,4 +4,7 @@
     <string name="ambient_peek_summary">Tap a notification icon to show a brief outlined preview on the always-on display. Requires the device’s AOD tap gesture.</string>
     <string name="ambient_peek_duration_title">Preview duration</string>
     <string name="ambient_peek_duration_summary">Time before the preview closes</string>
+    <string name="ambient_peek_icon_pack_title">App icon pack</string>
+    <string name="ambient_peek_icon_pack_summary">Choose notification icons for Ambient Peek</string>
+    <string name="ambient_peek_icon_pack_default">System app icons</string>
 </resources>
