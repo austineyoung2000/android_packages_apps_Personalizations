@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="power_menu_options_title">Power menu options</string>
+    <string name="power_menu_tile_style_title">Power menu tile style</string>
+    <string name="power_menu_color_effect_title">Power menu color effect</string>
+    <string name="power_menu_color_first_title">First tile color</string>
+    <string name="power_menu_color_second_title">Second tile color</string>
+</resources>
