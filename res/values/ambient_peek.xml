@@ -9,4 +9,6 @@
     <string name="ambient_peek_icon_pack_default">System app icons</string>
     <string name="ambient_peek_max_apps_title">Maximum notification apps</string>
     <string name="ambient_peek_max_apps_summary">Show the most recent apps with notifications first</string>
+    <string name="ambient_peek_icon_size_title">Notification icon size</string>
+    <string name="ambient_peek_icon_size_summary">Increase icon size within the available screen width</string>
 </resources>
