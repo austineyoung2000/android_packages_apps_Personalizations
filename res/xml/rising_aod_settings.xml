@@ -94,6 +94,16 @@
             settings:interval="1"
             android:dependency="ambient_peek_enabled" />
         <com.android.settings.preferences.SystemSettingSeekBarPreference
+            android:key="ambient_peek_icon_size"
+            android:title="@string/ambient_peek_icon_size_title"
+            android:summary="@string/ambient_peek_icon_size_summary"
+            android:defaultValue="100"
+            android:max="200"
+            settings:min="100"
+            settings:interval="10"
+            settings:units="%"
+            android:dependency="ambient_peek_enabled" />
+        <com.android.settings.preferences.SystemSettingSeekBarPreference
             android:key="ambient_peek_duration"
             android:title="@string/ambient_peek_duration_title"
             android:summary="@string/ambient_peek_duration_summary"
