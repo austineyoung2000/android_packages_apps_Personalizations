@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="rising_stacks_title">Rising Stacks</string>
+    <string name="rising_stacks_title">Stacks</string>
     <string name="rising_stacks_summary">Group lock screen notifications by app</string>
     <string name="rising_stacks_icon_pack_title">App icon pack</string>
-    <string name="rising_stacks_icon_pack_summary">Choose icons for Rising Stacks</string>
+    <string name="rising_stacks_icon_pack_summary">Choose icons for Stacks</string>
     <string name="rising_stacks_icon_pack_default">System app icons</string>
 </resources>
