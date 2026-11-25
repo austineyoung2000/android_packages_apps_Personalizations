@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: The Resurrected Remix Project
+     SPDX-FileCopyrightText: The RisingOS Android Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="rising_pie_title">Pie controls</string>
+    <string name="rising_pie_summary">Hold a screen edge to open shortcuts</string>
+    <string name="rising_pie_edges">Edges</string>
+    <string name="rising_pie_zone">Part of the edge</string>
+    <string name="rising_pie_style">Style</string>
+    <string name="rising_pie_clock">Clock and battery above Pie</string>
+    <string name="rising_pie_size">Pie size</string>
+    <string name="rising_pie_hold">Hold duration</string>
+    <string name="rising_pie_edge_width">Edge sensitivity</string>
+    <string name="rising_pie_edge_width_summary">Width of the edge activation area</string>
+    <string name="rising_pie_movement_tolerance">Movement tolerance</string>
+    <string name="rising_pie_movement_tolerance_summary">How much your finger can move during the hold</string>
+    <string name="rising_pie_slices">Slices and order</string>
+    <string name="rising_pie_slice_slot">Slice %1$d</string>
+    <string name="rising_pie_help">Hold still on a chosen edge, slide to a slice, and release. Pie does not open on the lock screen.</string>
+    <string-array name="rising_pie_edges_entries"><item>Left</item><item>Right</item><item>Both</item></string-array>
+    <string-array name="rising_pie_edges_values" translatable="false"><item>0</item><item>1</item><item>2</item></string-array>
+    <string-array name="rising_pie_zone_entries"><item>Lower third</item><item>Middle third</item><item>Whole edge</item></string-array>
+    <string-array name="rising_pie_zone_values" translatable="false"><item>0</item><item>1</item><item>2</item></string-array>
+    <string-array name="rising_pie_style_entries"><item>Classic</item><item>Glass</item><item>Neon</item></string-array>
+    <string-array name="rising_pie_style_values" translatable="false"><item>2</item><item>1</item><item>0</item></string-array>
+    <string-array name="rising_pie_slice_entries"><item>None</item><item>Back</item><item>Home</item><item>Recents</item><item>Notifications</item><item>Flashlight</item><item>Screenshot</item><item>Power menu</item><item>Assistant</item><item>Camera</item></string-array>
+    <string-array name="rising_pie_slice_values" translatable="false"><item>none</item><item>back</item><item>home</item><item>recents</item><item>notifications</item><item>flashlight</item><item>screenshot</item><item>power</item><item>assistant</item><item>camera</item></string-array>
+</resources>

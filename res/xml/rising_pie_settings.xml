@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: The Resurrected Remix Project
+     SPDX-FileCopyrightText: The RisingOS Android Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/rising_pie_title">
+    <com.android.settings.preferences.SystemSettingSwitchPreference
+        android:key="pie_controls" android:title="@string/rising_pie_title"
+        android:summary="@string/rising_pie_summary" android:defaultValue="false" />
+    <com.android.settings.preferences.SystemSettingListPreference
+        android:key="pie_edges" android:title="@string/rising_pie_edges"
+        android:entries="@array/rising_pie_edges_entries" android:entryValues="@array/rising_pie_edges_values"
+        android:defaultValue="2" android:summary="%s" android:dependency="pie_controls" />
+    <com.android.settings.preferences.SystemSettingListPreference
+        android:key="pie_zone" android:title="@string/rising_pie_zone"
+        android:entries="@array/rising_pie_zone_entries" android:entryValues="@array/rising_pie_zone_values"
+        android:defaultValue="0" android:summary="%s" android:dependency="pie_controls" />
+    <com.android.settings.preferences.SystemSettingListPreference
+        android:key="pie_style" android:title="@string/rising_pie_style"
+        android:entries="@array/rising_pie_style_entries" android:entryValues="@array/rising_pie_style_values"
+        android:defaultValue="2" android:summary="%s" android:dependency="pie_controls" />
+    <com.android.settings.preferences.SystemSettingSwitchPreference
+        android:key="pie_clock" android:title="@string/rising_pie_clock"
+        android:defaultValue="true" android:dependency="pie_controls" />
+    <com.android.settings.preferences.SystemSettingSeekBarPreference
+        android:key="pie_size" android:title="@string/rising_pie_size"
+        android:defaultValue="100" android:max="150" settings:min="60" settings:interval="5"
+        settings:units="%" android:dependency="pie_controls" />
+    <com.android.settings.preferences.SystemSettingSeekBarPreference
+        android:key="pie_hold_duration" android:title="@string/rising_pie_hold"
+        android:defaultValue="250" android:max="1000" settings:min="150" settings:interval="50"
+        settings:units="ms" android:dependency="pie_controls" />
+    <com.android.settings.preferences.SystemSettingSeekBarPreference
+        android:key="pie_edge_width" android:title="@string/rising_pie_edge_width"
+        android:summary="@string/rising_pie_edge_width_summary" android:defaultValue="16"
+        android:max="32" settings:min="8" settings:interval="1" settings:units="dp"
+        android:dependency="pie_controls" />
+    <com.android.settings.preferences.SystemSettingSeekBarPreference
+        android:key="pie_movement_tolerance" android:title="@string/rising_pie_movement_tolerance"
+        android:summary="@string/rising_pie_movement_tolerance_summary" android:defaultValue="100"
+        android:max="200" settings:min="50" settings:interval="10" settings:units="%"
+        android:dependency="pie_controls" />
+    <PreferenceCategory android:key="pie_slices_category" android:title="@string/rising_pie_slices" />
+    <com.android.settingslib.widget.FooterPreference android:title="@string/rising_pie_help" />
+</PreferenceScreen>
