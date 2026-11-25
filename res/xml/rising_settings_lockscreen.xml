@@ -37,6 +37,12 @@
 
 
         <com.android.settings.preferences.ui.AdaptivePreference
+            android:key="credential_colors"
+            android:title="@string/credential_colors_title"
+            android:summary="@string/credential_colors_summary"
+            android:fragment="com.rising.settings.fragments.CredentialColors" />
+
+        <com.android.settings.preferences.ui.AdaptivePreference
             android:key="lock_glymps_settings"
             android:title="@string/lock_glymps_title"
             android:summary="@string/lock_glymps_enable_summary"
