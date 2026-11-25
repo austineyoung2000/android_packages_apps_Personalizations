@@ -28,4 +28,10 @@
     <string-array name="rising_pie_style_values" translatable="false"><item>2</item><item>1</item><item>0</item></string-array>
     <string-array name="rising_pie_slice_entries"><item>None</item><item>Back</item><item>Home</item><item>Recents</item><item>Notifications</item><item>Flashlight</item><item>Screenshot</item><item>Power menu</item><item>Assistant</item><item>Camera</item></string-array>
     <string-array name="rising_pie_slice_values" translatable="false"><item>none</item><item>back</item><item>home</item><item>recents</item><item>notifications</item><item>flashlight</item><item>screenshot</item><item>power</item><item>assistant</item><item>camera</item></string-array>
+    <string name="rising_pie_apps_title">App shortcuts · third ring</string>
+    <string name="rising_pie_app_slot">App shortcut %1$d</string>
+    <string name="rising_pie_app_none">None</string>
+    <string name="rising_pie_app_choose">Choose an app</string>
+    <string name="rising_pie_icon_pack_title">App icon pack</string>
+    <string name="rising_pie_icon_pack_default">Default app icons</string>
 </resources>
