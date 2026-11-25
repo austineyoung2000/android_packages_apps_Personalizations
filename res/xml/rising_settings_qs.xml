@@ -45,7 +45,8 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory>
+    <PreferenceCategory
+        android:title="@string/qs_colors_category_title">
         <com.android.settings.preferences.ui.AdaptivePreference
             android:key="qs_colors_page"
             android:title="@string/qs_colors_page_title"
