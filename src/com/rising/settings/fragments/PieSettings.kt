@@ -76,7 +76,7 @@ class PieSettings : SettingsPreferenceFragment() {
                 isPersistent = false
             }
             appCategory.addPreference(packPref)
-            packPref.dependency = "pie_controls"
+            packPref.dependency = "pie_apps_enabled"
             setupIconPacks(packPref)
             repeat(APP_COUNT) { index ->
                 val pref = Preference(requireContext()).apply {
@@ -85,7 +85,7 @@ class PieSettings : SettingsPreferenceFragment() {
                     isPersistent = false
                 }
                 appCategory.addPreference(pref)
-                pref.dependency = "pie_controls"
+                pref.dependency = "pie_apps_enabled"
                 pref.setOnPreferenceClickListener { showAppPicker(index); true }
                 appSlots.add(pref)
             }

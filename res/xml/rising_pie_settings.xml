@@ -44,6 +44,11 @@
         android:max="200" settings:min="50" settings:interval="10" settings:units="%"
         android:dependency="pie_controls" />
     <PreferenceCategory android:key="pie_slices_category" android:title="@string/rising_pie_slices" />
-    <PreferenceCategory android:key="pie_apps_category" android:title="@string/rising_pie_apps_title" />
+    <PreferenceCategory android:key="pie_apps_category" android:title="@string/rising_pie_apps_title">
+        <com.android.settings.preferences.SystemSettingSwitchPreference
+            android:key="pie_apps_enabled" android:title="@string/rising_pie_apps_enabled"
+            android:summary="@string/rising_pie_apps_enabled_summary"
+            android:defaultValue="true" android:dependency="pie_controls" />
+    </PreferenceCategory>
     <com.android.settingslib.widget.FooterPreference android:title="@string/rising_pie_help" />
 </PreferenceScreen>
