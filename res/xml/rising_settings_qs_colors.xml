@@ -154,6 +154,18 @@
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/qs_brightness_appearance_title">
+        <com.android.settings.preferences.SystemSettingListPreference
+            android:key="qs_brightness_color_effect"
+            android:title="@string/qs_brightness_effect_title"
+            android:entries="@array/qs_brightness_effect_entries"
+            android:entryValues="@array/qs_brightness_effect_values"
+            android:defaultValue="0" android:summary="%s" />
+
+        <com.android.settings.preferences.SystemSettingSeekBarPreference
+            android:key="qs_brightness_glow_intensity"
+            android:title="@string/neon_glow_intensity_title"
+            android:defaultValue="60" android:max="100"
+            settings:min="0" settings:interval="1" settings:units="%" />
         <com.android.settings.preferences.SystemSettingSwitchPreference
             android:key="qs_brightness_color_enabled"
             android:title="@string/qs_brightness_color_enabled_title"
@@ -162,8 +174,7 @@
         <com.android.settings.preferences.colorpicker.SystemSettingColorPickerPreference
             android:key="qs_brightness_color"
             android:title="@string/qs_brightness_color_first_title"
-            android:defaultValue="0xff6200ee"
-            android:dependency="qs_brightness_color_enabled" />
+            android:defaultValue="0xff6200ee" />
 
         <com.android.settings.preferences.SystemSettingSwitchPreference
             android:key="qs_brightness_gradient_enabled"
@@ -174,8 +185,7 @@
         <com.android.settings.preferences.colorpicker.SystemSettingColorPickerPreference
             android:key="qs_brightness_gradient_end_color"
             android:title="@string/qs_brightness_color_second_title"
-            android:defaultValue="0xff0000ff"
-            android:dependency="qs_brightness_gradient_enabled" />
+            android:defaultValue="0xff0000ff" />
 
         <com.android.settings.preferences.SystemSettingSwitchPreference
             android:key="qs_brightness_track_color_enabled"

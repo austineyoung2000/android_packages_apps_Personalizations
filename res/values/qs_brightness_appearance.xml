@@ -8,4 +8,7 @@
     <string name="qs_brightness_color_second_title">Second fill color</string>
     <string name="qs_brightness_track_enabled_title">Custom remaining track color</string>
     <string name="qs_brightness_track_title">Remaining track color</string>
+    <string name="qs_brightness_effect_title">Brightness slider color effect</string>
+    <string-array name="qs_brightness_effect_entries"><item>Standard colors</item><item>Neon glow</item><item>Dual neon glow</item></string-array>
+    <string-array name="qs_brightness_effect_values" translatable="false"><item>0</item><item>1</item><item>2</item></string-array>
 </resources>

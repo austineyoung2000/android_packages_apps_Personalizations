@@ -40,6 +40,11 @@ class QsColors : SettingsPreferenceFragment() {
                 true
             }
         }
+        findPreference<Preference>("qs_brightness_color_effect")?.setOnPreferenceChangeListener { _, value ->
+            findPreference<Preference>("qs_brightness_glow_intensity")?.isVisible =
+                (value.toString().toIntOrNull() ?: 0) in 1..2
+            true
+        }
         updateGlowVisibility()
     }
 
@@ -49,6 +54,9 @@ class QsColors : SettingsPreferenceFragment() {
     }
 
     private fun updateGlowVisibility() {
+        val brightnessEffect = Settings.System.getIntForUser(requireContext().contentResolver,
+            "qs_brightness_color_effect", 0, UserHandle.USER_CURRENT)
+        findPreference<Preference>("qs_brightness_glow_intensity")?.isVisible = brightnessEffect in 1..2
         listOf("active", "inactive").forEach { kind ->
             val effect = Settings.System.getIntForUser(requireContext().contentResolver,
                 "qs_${kind}_background_effect", 0, UserHandle.USER_CURRENT)
