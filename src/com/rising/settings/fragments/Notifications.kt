@@ -17,6 +17,8 @@ package com.rising.settings.fragments
 
 import android.content.Context
 import android.os.Bundle
+import android.os.UserHandle
+import android.provider.Settings
 import androidx.preference.Preference
 import com.android.internal.logging.nano.MetricsProto
 import com.android.settings.R
@@ -50,10 +52,28 @@ class Notifications : OptimizedSettingsFragment(), Preference.OnPreferenceChange
         super.onCreate(savedInstanceState)
 
         addPreferencesFromResource(R.xml.rising_settings_notification)
+        findPreference<Preference>("notification_card_color_mode")?.setOnPreferenceChangeListener { _, value ->
+            findPreference<Preference>("notification_card_glow_intensity")?.isVisible =
+                (value.toString().toIntOrNull() ?: -1) in 5..6
+            true
+        }
+        updateGlowVisibility()
         mCompactHUNPref = findCachedPreference(COMPACT_HUN_KEY)
         mCompactHUNPref?.onPreferenceChangeListener = this
     }
     
+    override fun onResume() {
+        super.onResume()
+        updateGlowVisibility()
+    }
+
+    private fun updateGlowVisibility() {
+        val resolver = context?.contentResolver ?: return
+        val effect = Settings.System.getIntForUser(resolver, "notification_card_color_mode", 0,
+            UserHandle.USER_CURRENT)
+        findPreference<Preference>("notification_card_glow_intensity")?.isVisible = effect in 5..6
+    }
+
     override fun onPreferenceChange(preference: Preference, newValue: Any?): Boolean {
         return when (preference) {
             mCompactHUNPref -> {

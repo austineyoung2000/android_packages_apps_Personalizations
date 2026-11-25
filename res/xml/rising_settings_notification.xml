@@ -65,6 +65,15 @@
             android:defaultValue="0"
             android:summary="%s" />
 
+        <com.android.settings.preferences.SystemSettingSeekBarPreference
+            android:key="notification_card_glow_intensity"
+            android:title="@string/neon_glow_intensity_title"
+            android:defaultValue="60"
+            android:max="100"
+            settings:min="0"
+            settings:interval="1"
+            settings:units="%" />
+
         <com.android.settings.preferences.colorpicker.SystemSettingColorPickerPreference
             android:key="notification_card_color_first"
             android:title="@string/notification_card_color_first_title"

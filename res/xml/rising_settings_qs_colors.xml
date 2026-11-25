@@ -21,6 +21,15 @@
             android:summary="%s"
             lineage:position="top" />
 
+        <com.android.settings.preferences.SystemSettingSeekBarPreference
+            android:key="qs_active_glow_intensity"
+            android:title="@string/neon_glow_intensity_title"
+            android:defaultValue="60"
+            android:max="100"
+            settings:min="0"
+            settings:interval="1"
+            settings:units="%" />
+
         <com.android.settings.preferences.colorpicker.SystemSettingColorPickerPreference
             android:key="qs_active_background_color"
             android:title="@string/qs_active_background_first_title"
@@ -38,6 +47,15 @@
             android:entryValues="@array/qs_tile_effect_values"
             android:defaultValue="0"
             android:summary="%s" />
+
+        <com.android.settings.preferences.SystemSettingSeekBarPreference
+            android:key="qs_inactive_glow_intensity"
+            android:title="@string/neon_glow_intensity_title"
+            android:defaultValue="60"
+            android:max="100"
+            settings:min="0"
+            settings:interval="1"
+            settings:units="%" />
 
         <com.android.settings.preferences.colorpicker.SystemSettingColorPickerPreference
             android:key="qs_inactive_background_color"

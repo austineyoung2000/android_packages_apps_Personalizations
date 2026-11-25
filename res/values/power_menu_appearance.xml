@@ -5,4 +5,10 @@
     <string name="power_menu_color_effect_title">Power menu color effect</string>
     <string name="power_menu_color_first_title">First tile color</string>
     <string name="power_menu_color_second_title">Second tile color</string>
+    <string-array name="power_menu_color_effect_entries">
+        <item>Native</item><item>Solid</item><item>Two-color gradient</item><item>Blur</item><item>Two-color blur</item><item>Neon glow</item><item>Dual neon glow</item>
+    </string-array>
+    <string-array name="power_menu_color_effect_values" translatable="false">
+        <item>0</item><item>1</item><item>2</item><item>3</item><item>4</item><item>5</item><item>6</item>
+    </string-array>
 </resources>

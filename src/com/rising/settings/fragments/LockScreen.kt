@@ -103,6 +103,12 @@ class LockScreen : OptimizedSettingsFragment() {
         super.onCreate(savedInstanceState)
 
         addPreferencesFromResource(R.xml.rising_settings_lockscreen)
+        findPreference<Preference>("power_menu_tile_color_effect")?.setOnPreferenceChangeListener { _, value ->
+            findPreference<Preference>("power_menu_glow_intensity")?.isVisible =
+                (value.toString().toIntOrNull() ?: -1) in 5..6
+            true
+        }
+        updatePowerGlowVisibility()
 
         val udfpsCategory = findPreference<PreferenceCategory>(LOCKSCREEN_UDFPS_CATEGORY)
         val fpCategory = findPreference<PreferenceCategory>(LOCKSCREEN_FP_CATEGORY)
@@ -189,8 +195,15 @@ class LockScreen : OptimizedSettingsFragment() {
     override fun onResume() {
         super.onResume()
         updateRisingStacksIconPacks()
+        updatePowerGlowVisibility()
     }
-    
+
+    private fun updatePowerGlowVisibility() {
+        val resolver = context?.contentResolver ?: return
+        val effect = Settings.System.getIntForUser(resolver, "power_menu_tile_color_effect", 0,
+            UserHandle.USER_CURRENT)
+        findPreference<Preference>("power_menu_glow_intensity")?.isVisible = effect in 5..6
+    }
 
     private fun updateRisingStacksIconPacks() {
         val ctx = context ?: return

@@ -7,6 +7,7 @@ package com.rising.settings.fragments.quicksettings
 import android.os.Bundle
 import android.os.UserHandle
 import android.provider.Settings
+import androidx.preference.Preference
 import com.android.internal.logging.nano.MetricsProto
 import com.android.settings.R
 import com.android.settings.SettingsPreferenceFragment
@@ -32,6 +33,27 @@ class QsColors : SettingsPreferenceFragment() {
             }
         }
         addPreferencesFromResource(R.xml.rising_settings_qs_colors)
+        listOf("active", "inactive").forEach { kind ->
+            findPreference<Preference>("qs_${kind}_background_effect")?.setOnPreferenceChangeListener { _, value ->
+                findPreference<Preference>("qs_${kind}_glow_intensity")?.isVisible =
+                    (value.toString().toIntOrNull() ?: -1) in 5..6
+                true
+            }
+        }
+        updateGlowVisibility()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        updateGlowVisibility()
+    }
+
+    private fun updateGlowVisibility() {
+        listOf("active", "inactive").forEach { kind ->
+            val effect = Settings.System.getIntForUser(requireContext().contentResolver,
+                "qs_${kind}_background_effect", 0, UserHandle.USER_CURRENT)
+            findPreference<Preference>("qs_${kind}_glow_intensity")?.isVisible = effect in 5..6
+        }
     }
 
     override fun getMetricsCategory(): Int = MetricsProto.MetricsEvent.VIEW_UNKNOWN
