@@ -22,6 +22,20 @@
         android:key="pie_style" android:title="@string/rising_pie_style"
         android:entries="@array/rising_pie_style_entries" android:entryValues="@array/rising_pie_style_values"
         android:defaultValue="2" android:summary="%s" android:dependency="pie_controls" />
+    <com.android.settings.preferences.SystemSettingListPreference
+        android:key="pie_surface_style" android:title="@string/rising_pie_surface_style"
+        android:entries="@array/qs_compose_tile_style_entries" android:entryValues="@array/qs_compose_tile_style_values"
+        android:defaultValue="0" android:summary="%s" android:dependency="pie_controls" />
+    <com.android.settings.preferences.colorpicker.SystemSettingColorPickerPreference
+        android:key="pie_first_color" android:title="@string/rising_pie_first_color"
+        android:defaultValue="0xff6200ee" android:dependency="pie_controls" />
+    <com.android.settings.preferences.colorpicker.SystemSettingColorPickerPreference
+        android:key="pie_second_color" android:title="@string/rising_pie_second_color"
+        android:defaultValue="0xff0000ff" android:dependency="pie_controls" />
+    <com.android.settings.preferences.SystemSettingSeekBarPreference
+        android:key="pie_glow_intensity" android:title="@string/rising_pie_glow_intensity"
+        android:defaultValue="60" android:max="100" settings:min="0" settings:interval="1"
+        settings:units="%" android:dependency="pie_controls" />
     <com.android.settings.preferences.SystemSettingSwitchPreference
         android:key="pie_clock" android:title="@string/rising_pie_clock"
         android:defaultValue="true" android:dependency="pie_controls" />

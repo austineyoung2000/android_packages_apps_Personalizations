@@ -37,6 +37,11 @@ class PieSettings : SettingsPreferenceFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         addPreferencesFromResource(R.xml.rising_pie_settings)
+        findPreference<Preference>("pie_style")?.setOnPreferenceChangeListener { _, value ->
+            updateAppearanceVisibility(value.toString().toIntOrNull() ?: 2)
+            true
+        }
+        updateAppearanceVisibility()
         val category = findPreference<PreferenceCategory>("pie_slices_category") ?: return
         val entries = resources.getStringArray(R.array.rising_pie_slice_entries)
         val values = resources.getStringArray(R.array.rising_pie_slice_values)
@@ -95,8 +100,18 @@ class PieSettings : SettingsPreferenceFragment() {
 
     override fun onResume() {
         super.onResume()
+        updateAppearanceVisibility()
         updateSlots(readItems())
         updateAppSlots()
+    }
+
+    private fun updateAppearanceVisibility(selected: Int? = null) {
+        val resolver = context?.contentResolver ?: return
+        val effect = selected ?: Settings.System.getIntForUser(resolver, "pie_style", 2,
+            UserHandle.USER_CURRENT)
+        findPreference<Preference>("pie_first_color")?.isVisible = effect in listOf(0, 3, 4, 5)
+        findPreference<Preference>("pie_second_color")?.isVisible = effect == 3 || effect == 5
+        findPreference<Preference>("pie_glow_intensity")?.isVisible = effect == 0 || effect == 3
     }
 
     private fun setupIconPacks(pref: ListPreference) {
