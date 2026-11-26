@@ -25,6 +25,10 @@ class CredentialColors : SettingsPreferenceFragment() {
             updateKnockEffect(value.toString().toIntOrNull() ?: 0)
             true
         }
+        findPreference<Preference>("rising_password_effect")?.setOnPreferenceChangeListener { _, value ->
+            updatePasswordEffect(value.toString().toIntOrNull() ?: 0)
+            true
+        }
         findPreference<Preference>("rising_pattern_effect")?.setOnPreferenceChangeListener { _, value ->
             updatePatternEffect(value.toString().toIntOrNull() ?: 0)
             true
@@ -39,6 +43,7 @@ class CredentialColors : SettingsPreferenceFragment() {
         } catch (_: RuntimeException) { false }
         val isPin = type == LockPatternUtils.CREDENTIAL_TYPE_PIN && !isKnock
         val isPattern = type == LockPatternUtils.CREDENTIAL_TYPE_PATTERN
+        val isPassword = type == LockPatternUtils.CREDENTIAL_TYPE_PASSWORD
         val title = if (isKnock) R.string.credential_current_knock else when (type) {
             LockPatternUtils.CREDENTIAL_TYPE_PIN -> R.string.credential_current_pin
             LockPatternUtils.CREDENTIAL_TYPE_PATTERN -> R.string.credential_current_pattern
@@ -48,11 +53,12 @@ class CredentialColors : SettingsPreferenceFragment() {
         }
         findPreference<Preference>("credential_status")?.apply {
             setTitle(title)
-            summary = if (isPin || isPattern || isKnock) null else getString(R.string.credential_pattern_unavailable)
+            summary = if (isPin || isPattern || isKnock || isPassword) null else getString(R.string.credential_pattern_unavailable)
         }
         findPreference<Preference>("credential_pin_options")?.isVisible = isPin
         findPreference<Preference>("credential_pattern_options")?.isVisible = isPattern
         findPreference<Preference>("credential_knock_options")?.isVisible = isKnock
+        findPreference<Preference>("credential_password_options")?.isVisible = isPassword
         val effect = Settings.System.getIntForUser(requireContext().contentResolver,
             "rising_pin_effect", 0, UserHandle.USER_CURRENT)
         updateEffect(effect)
@@ -61,6 +67,13 @@ class CredentialColors : SettingsPreferenceFragment() {
         updatePatternEffect(patternEffect)
         updateKnockEffect(Settings.System.getIntForUser(requireContext().contentResolver,
             "rising_knock_effect", 0, UserHandle.USER_CURRENT))
+        updatePasswordEffect(Settings.System.getIntForUser(requireContext().contentResolver,
+            "rising_password_effect", 0, UserHandle.USER_CURRENT))
+    }
+    private fun updatePasswordEffect(effect: Int) {
+        findPreference<Preference>("rising_password_first_color")?.isVisible = effect != 0
+        findPreference<Preference>("rising_password_second_color")?.isVisible = effect == 2 || effect == 4
+        findPreference<Preference>("rising_password_glow_intensity")?.isVisible = effect == 3 || effect == 4
     }
     private fun updateKnockEffect(effect: Int) {
         findPreference<Preference>("rising_knock_first_color")?.isVisible = effect != 0
