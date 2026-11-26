@@ -5,4 +5,11 @@
     <string name="rising_stacks_icon_pack_title">App icon pack</string>
     <string name="rising_stacks_icon_pack_summary">Choose icons for Stacks</string>
     <string name="rising_stacks_icon_pack_default">System app icons</string>
+    <string name="rising_stacks_icon_size">Icon size</string>
+    <string name="rising_stacks_icon_size_summary">Resize app icons and the Stacks row</string>
+    <string name="rising_stacks_effect">Selected item color effect</string>
+    <string name="rising_stacks_first_color">First selected color</string>
+    <string name="rising_stacks_second_color">Second selected color</string>
+    <string name="rising_stacks_outline">Selected item outline</string>
+    <string name="rising_stacks_glow_intensity">Glow intensity</string>
 </resources>

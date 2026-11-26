@@ -111,8 +111,36 @@
             android:title="@string/rising_stacks_icon_pack_title"
             android:summary="@string/rising_stacks_icon_pack_summary"
             android:dependency="rising_stacks_enabled"
-            android:persistent="false"
-            lineage:position="bottom" />
+            android:persistent="false" />
+
+        <com.android.settings.preferences.SystemSettingSeekBarPreference
+            android:key="rising_stacks_icon_size"
+            android:title="@string/rising_stacks_icon_size"
+            android:summary="@string/rising_stacks_icon_size_summary"
+            android:defaultValue="30" android:max="60" settings:min="24"
+            settings:interval="2" settings:units=" dp"
+            android:dependency="rising_stacks_enabled" />
+
+        <com.android.settings.preferences.SystemSettingListPreference
+            android:key="rising_stacks_effect" android:title="@string/rising_stacks_effect"
+            android:entries="@array/credential_pin_effect_entries"
+            android:entryValues="@array/credential_pin_effect_values"
+            android:defaultValue="0" android:summary="%s"
+            android:dependency="rising_stacks_enabled" />
+
+        <com.android.settings.preferences.colorpicker.SystemSettingColorPickerPreference
+            android:key="rising_stacks_first_color" android:title="@string/rising_stacks_first_color"
+            android:defaultValue="0xffff0055" android:dependency="rising_stacks_enabled" />
+        <com.android.settings.preferences.colorpicker.SystemSettingColorPickerPreference
+            android:key="rising_stacks_second_color" android:title="@string/rising_stacks_second_color"
+            android:defaultValue="0xff315bff" android:dependency="rising_stacks_enabled" />
+        <com.android.settings.preferences.SystemSettingSwitchPreference
+            android:key="rising_stacks_outline" android:title="@string/rising_stacks_outline"
+            android:defaultValue="true" android:dependency="rising_stacks_enabled" />
+        <com.android.settings.preferences.SystemSettingSeekBarPreference
+            android:key="rising_stacks_glow_intensity" android:title="@string/rising_stacks_glow_intensity"
+            android:defaultValue="60" android:max="100" settings:min="0" settings:interval="1"
+            settings:units="%" android:dependency="rising_stacks_enabled" lineage:position="bottom" />
     </PreferenceCategory>
 
     <PreferenceCategory
