@@ -21,12 +21,17 @@ class CredentialColors : SettingsPreferenceFragment() {
             updateEffect(value.toString().toIntOrNull() ?: 0)
             true
         }
+        findPreference<Preference>("rising_pattern_effect")?.setOnPreferenceChangeListener { _, value ->
+            updatePatternEffect(value.toString().toIntOrNull() ?: 0)
+            true
+        }
     }
     override fun onResume() {
         super.onResume()
         val type = try { LockPatternUtils(requireContext()).getCredentialTypeForUser(ActivityManager.getCurrentUser()) }
             catch (_: RuntimeException) { LockPatternUtils.CREDENTIAL_TYPE_UNKNOWN }
         val isPin = type == LockPatternUtils.CREDENTIAL_TYPE_PIN
+        val isPattern = type == LockPatternUtils.CREDENTIAL_TYPE_PATTERN
         val title = when (type) {
             LockPatternUtils.CREDENTIAL_TYPE_PIN -> R.string.credential_current_pin
             LockPatternUtils.CREDENTIAL_TYPE_PATTERN -> R.string.credential_current_pattern
@@ -36,12 +41,21 @@ class CredentialColors : SettingsPreferenceFragment() {
         }
         findPreference<Preference>("credential_status")?.apply {
             setTitle(title)
-            summary = if (isPin) null else getString(R.string.credential_pin_unavailable)
+            summary = if (isPin || isPattern) null else getString(R.string.credential_pattern_unavailable)
         }
         findPreference<Preference>("credential_pin_options")?.isVisible = isPin
+        findPreference<Preference>("credential_pattern_options")?.isVisible = isPattern
         val effect = Settings.System.getIntForUser(requireContext().contentResolver,
             "rising_pin_effect", 0, UserHandle.USER_CURRENT)
         updateEffect(effect)
+        val patternEffect = Settings.System.getIntForUser(requireContext().contentResolver,
+            "rising_pattern_effect", 0, UserHandle.USER_CURRENT)
+        updatePatternEffect(patternEffect)
+    }
+    private fun updatePatternEffect(effect: Int) {
+        findPreference<Preference>("rising_pattern_first_color")?.isVisible = effect != 0
+        findPreference<Preference>("rising_pattern_second_color")?.isVisible = effect == 2 || effect == 4
+        findPreference<Preference>("rising_pattern_glow_intensity")?.isVisible = effect == 3 || effect == 4
     }
     private fun updateEffect(effect: Int) {
         listOf("rising_pin_shape", "rising_pin_first_color", "rising_pin_digit_color").forEach {
