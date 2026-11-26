@@ -56,46 +56,6 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:title="@string/qs_tile_shape_category_title">
-
-        <com.android.settings.preferences.SystemSettingListPreference
-            android:key="qs_tile_shape"
-            android:title="@string/qs_tile_shape_title"
-            android:entries="@array/qs_tile_shape_entries"
-            android:entryValues="@array/qs_tile_shape_values"
-            android:defaultValue="0"
-            android:summary="%s" />
-
-        <com.android.settings.preferences.SystemSettingListPreference
-            android:key="qs_compose_tile_style"
-            android:title="@string/qs_compose_tile_style_title"
-            android:entries="@array/qs_compose_tile_style_entries"
-            android:entryValues="@array/qs_compose_tile_style_values"
-            android:defaultValue="0"
-            android:summary="%s" />
-    </PreferenceCategory>
-
-
-
-    <PreferenceCategory
-        android:title="@string/qs_brightness_appearance_title">
-
-        <com.android.settings.preferences.SystemSettingListPreference
-            android:key="qs_brightness_style"
-            android:title="@string/qs_brightness_style_title"
-            android:entries="@array/qs_compose_tile_style_entries"
-            android:entryValues="@array/qs_compose_tile_style_values"
-            android:defaultValue="0"
-            android:summary="%s"
-            lineage:position="top" />
-
-    </PreferenceCategory>
-
-
-
-
-
-    <PreferenceCategory
         android:key="qs_layout_category"
         android:title="@string/qs_tile_layout_title">
 

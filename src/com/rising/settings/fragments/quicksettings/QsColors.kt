@@ -35,8 +35,7 @@ class QsColors : SettingsPreferenceFragment() {
         addPreferencesFromResource(R.xml.rising_settings_qs_colors)
         listOf("active", "inactive").forEach { kind ->
             findPreference<Preference>("qs_${kind}_background_effect")?.setOnPreferenceChangeListener { _, value ->
-                findPreference<Preference>("qs_${kind}_glow_intensity")?.isVisible =
-                    (value.toString().toIntOrNull() ?: -1) in 5..6
+                updateTileVisibility(kind, value.toString().toIntOrNull() ?: 0)
                 true
             }
         }
@@ -60,8 +59,14 @@ class QsColors : SettingsPreferenceFragment() {
         listOf("active", "inactive").forEach { kind ->
             val effect = Settings.System.getIntForUser(requireContext().contentResolver,
                 "qs_${kind}_background_effect", 0, UserHandle.USER_CURRENT)
-            findPreference<Preference>("qs_${kind}_glow_intensity")?.isVisible = effect in 5..6
+            updateTileVisibility(kind, effect)
         }
+    }
+
+    private fun updateTileVisibility(kind: String, effect: Int) {
+        findPreference<Preference>("qs_${kind}_glow_intensity")?.isVisible = effect in 5..6
+        findPreference<Preference>("qs_${kind}_background_color")?.isVisible = effect != 0
+        findPreference<Preference>("qs_${kind}_gradient_end_color")?.isVisible = effect in listOf(2, 4, 6)
     }
 
     override fun getMetricsCategory(): Int = MetricsProto.MetricsEvent.VIEW_UNKNOWN

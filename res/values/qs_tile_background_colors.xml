@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="qs_tile_background_colors_title">Tile background colors</string>
+    <string name="qs_tile_background_colors_title">Tile appearance and colors</string>
     <string name="qs_active_background_enabled_title">Custom active tile color</string>
     <string name="qs_tile_background_custom_summary">Use a custom background instead of the theme color</string>
     <string name="qs_active_background_first_title">First active color</string>
@@ -25,8 +25,9 @@
     <string name="qs_icon_color_enabled_summary">Use a custom color instead of the theme color</string>
     <string name="qs_active_icon_color_title">Active icon color</string>
     <string name="qs_inactive_icon_color_title">Inactive icon color</string>
-    <string name="qs_colors_category_title">Color settings</string>
-    <string name="qs_colors_page_title">Color</string>
-    <string name="qs_colors_page_summary">Tile, icon, label, brightness and header colors</string>
+    <string name="qs_colors_category_title">Color Settings and Appearance</string>
+    <string name="qs_colors_page_title">Color and appearance</string>
+    <string name="qs_colors_screen_title">Color Settings and Appearance</string>
+    <string name="qs_colors_page_summary">Tile and brightness styles, shapes, effects and colors</string>
     <string name="qs_header_colors_title">Header colors</string>
 </resources>
