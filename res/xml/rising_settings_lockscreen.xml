@@ -121,6 +121,14 @@
             settings:interval="2" settings:units=" dp"
             android:dependency="rising_stacks_enabled" />
 
+        <com.android.settings.preferences.SystemSettingSeekBarPreference
+            android:key="rising_stacks_icon_spacing"
+            android:title="@string/rising_stacks_icon_spacing"
+            android:summary="@string/rising_stacks_icon_spacing_summary"
+            android:defaultValue="4" android:max="32" settings:min="0"
+            settings:interval="1" settings:units=" dp"
+            android:dependency="rising_stacks_enabled" />
+
         <com.android.settings.preferences.SystemSettingListPreference
             android:key="rising_stacks_effect" android:title="@string/rising_stacks_effect"
             android:entries="@array/credential_pin_effect_entries"

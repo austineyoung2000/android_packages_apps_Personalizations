@@ -7,6 +7,8 @@
     <string name="rising_stacks_icon_pack_default">System app icons</string>
     <string name="rising_stacks_icon_size">Icon size</string>
     <string name="rising_stacks_icon_size_summary">Resize app icons and the Stacks row</string>
+    <string name="rising_stacks_icon_spacing">Icon spacing</string>
+    <string name="rising_stacks_icon_spacing_summary">Adjust the space between Stacks app icons</string>
     <string name="rising_stacks_effect">Selected item color effect</string>
     <string name="rising_stacks_first_color">First selected color</string>
     <string name="rising_stacks_second_color">Second selected color</string>
