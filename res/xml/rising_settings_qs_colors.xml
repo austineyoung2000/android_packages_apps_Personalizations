@@ -47,6 +47,13 @@
             settings:units="%" />
 
         <com.android.settings.preferences.SystemSettingSeekBarPreference
+            android:key="qs_active_neon_transparency"
+            android:title="@string/qs_neon_transparency_title"
+            android:summary="@string/qs_neon_transparency_summary"
+            android:defaultValue="78" android:max="100"
+            settings:min="0" settings:interval="1" settings:units="%" />
+
+        <com.android.settings.preferences.SystemSettingSeekBarPreference
             android:key="qs_active_frosted_glass_tint"
             android:title="@string/qs_glass_tint_intensity_title"
             android:summary="@string/qs_glass_tint_intensity_summary"
@@ -100,6 +107,13 @@
             settings:min="0"
             settings:interval="1"
             settings:units="%" />
+
+        <com.android.settings.preferences.SystemSettingSeekBarPreference
+            android:key="qs_inactive_neon_transparency"
+            android:title="@string/qs_neon_transparency_title"
+            android:summary="@string/qs_neon_transparency_summary"
+            android:defaultValue="78" android:max="100"
+            settings:min="0" settings:interval="1" settings:units="%" />
 
         <com.android.settings.preferences.SystemSettingSeekBarPreference
             android:key="qs_inactive_frosted_glass_tint"

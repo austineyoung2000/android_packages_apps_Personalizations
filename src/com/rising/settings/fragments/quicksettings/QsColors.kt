@@ -65,6 +65,7 @@ class QsColors : SettingsPreferenceFragment() {
 
     private fun updateTileVisibility(kind: String, effect: Int) {
         findPreference<Preference>("qs_${kind}_glow_intensity")?.isVisible = effect in 5..6
+        findPreference<Preference>("qs_${kind}_neon_transparency")?.isVisible = effect in 5..6
         listOf("frosted" to 7, "liquid" to 8).forEach { (glass, value) ->
             findPreference<Preference>("qs_${kind}_${glass}_glass_tint")?.isVisible = effect == value
             findPreference<Preference>("qs_${kind}_${glass}_glass_softness")?.isVisible = effect == value
