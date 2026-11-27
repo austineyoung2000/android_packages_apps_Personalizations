@@ -18,14 +18,10 @@
         android:key="pie_zone" android:title="@string/rising_pie_zone"
         android:entries="@array/rising_pie_zone_entries" android:entryValues="@array/rising_pie_zone_values"
         android:defaultValue="0" android:summary="%s" android:dependency="pie_controls" />
-    <com.android.settings.preferences.SystemSettingListPreference
+    <ListPreference
         android:key="pie_style" android:title="@string/rising_pie_style"
         android:entries="@array/rising_pie_style_entries" android:entryValues="@array/rising_pie_style_values"
-        android:defaultValue="2" android:summary="%s" android:dependency="pie_controls" />
-    <com.android.settings.preferences.SystemSettingListPreference
-        android:key="pie_surface_style" android:title="@string/rising_pie_surface_style"
-        android:entries="@array/qs_compose_tile_style_entries" android:entryValues="@array/qs_compose_tile_style_values"
-        android:defaultValue="0" android:summary="%s" android:dependency="pie_controls" />
+        android:defaultValue="2" android:summary="%s" android:dependency="pie_controls" android:persistent="false" />
     <com.android.settings.preferences.colorpicker.SystemSettingColorPickerPreference
         android:key="pie_first_color" android:title="@string/rising_pie_first_color"
         android:defaultValue="0xff6200ee" android:dependency="pie_controls" />

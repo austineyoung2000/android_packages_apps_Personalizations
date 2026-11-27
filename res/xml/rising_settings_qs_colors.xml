@@ -22,14 +22,6 @@
             lineage:position="top" />
 
         <com.android.settings.preferences.SystemSettingListPreference
-            android:key="qs_compose_tile_style"
-            android:title="@string/qs_compose_tile_style_title"
-            android:entries="@array/qs_compose_tile_style_entries"
-            android:entryValues="@array/qs_compose_tile_style_values"
-            android:defaultValue="0"
-            android:summary="%s" />
-
-        <com.android.settings.preferences.SystemSettingListPreference
             android:key="qs_active_background_effect"
             android:title="@string/qs_active_background_effect_title"
             android:entries="@array/qs_tile_effect_entries"
@@ -184,20 +176,12 @@
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/qs_brightness_appearance_title">
-        <com.android.settings.preferences.SystemSettingListPreference
-            android:key="qs_brightness_style"
-            android:title="@string/qs_brightness_style_title"
-            android:entries="@array/qs_compose_tile_style_entries"
-            android:entryValues="@array/qs_compose_tile_style_values"
-            android:defaultValue="0"
-            android:summary="%s"
-            lineage:position="top" />
-        <com.android.settings.preferences.SystemSettingListPreference
+        <ListPreference
             android:key="qs_brightness_color_effect"
-            android:title="@string/qs_brightness_effect_title"
+            android:title="@string/qs_brightness_style_title"
             android:entries="@array/qs_brightness_effect_entries"
             android:entryValues="@array/qs_brightness_effect_values"
-            android:defaultValue="0" android:summary="%s" />
+            android:defaultValue="0" android:summary="%s" android:persistent="false" />
 
         <com.android.settings.preferences.SystemSettingSeekBarPreference
             android:key="qs_brightness_glow_intensity"
@@ -220,12 +204,6 @@
             android:key="qs_brightness_color"
             android:title="@string/qs_brightness_color_first_title"
             android:defaultValue="0xff6200ee" />
-
-        <com.android.settings.preferences.SystemSettingSwitchPreference
-            android:key="qs_brightness_gradient_enabled"
-            android:title="@string/qs_brightness_gradient_title"
-            android:defaultValue="false"
-            android:dependency="qs_brightness_color_enabled" />
 
         <com.android.settings.preferences.colorpicker.SystemSettingColorPickerPreference
             android:key="qs_brightness_gradient_end_color"

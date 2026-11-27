@@ -7,6 +7,7 @@ import android.os.UserHandle
 import android.provider.Settings
 import androidx.preference.Preference
 import com.android.settings.SettingsPreferenceFragment
+import com.rising.settings.fragments.bindUnifiedStyle
 
 internal class DynamicPopupPreferences(
     private val fragment: SettingsPreferenceFragment,
@@ -15,13 +16,9 @@ internal class DynamicPopupPreferences(
     private fun pref(suffix: String): Preference? = fragment.findPreference(prefix + suffix)
 
     fun attach() {
-        pref("_popup_color_mode")?.setOnPreferenceChangeListener { _, value ->
-            update(value.toString().toIntOrNull() ?: 0, readDual())
-            true
-        }
-        pref("_popup_dual_color")?.setOnPreferenceChangeListener { _, value ->
-            update(readMode(), value as Boolean)
-            true
+        fragment.bindUnifiedStyle(prefix + "_popup_color_mode", prefix + "_popup_style",
+            dualColorKey = prefix + "_popup_dual_color", outlineKey = prefix + "_popup_outline") { mode ->
+            update(mode, readDual())
         }
         refresh()
     }
@@ -34,9 +31,9 @@ internal class DynamicPopupPreferences(
     fun refresh() = update(readMode(), readDual())
 
     private fun update(mode: Int, dual: Boolean) {
-        pref("_popup_first_color")?.isVisible = mode in 2..6
-        pref("_popup_dual_color")?.isVisible = mode == 2
-        pref("_popup_second_color")?.isVisible = mode == 4 || mode == 6 || mode == 2 && dual
+        pref("_popup_first_color")?.isVisible = mode in 2..7
+        pref("_popup_dual_color")?.isVisible = false
+        pref("_popup_second_color")?.isVisible = mode == 4 || mode == 6 || mode == 7 || mode == 2 && dual
         pref("_popup_glow_intensity")?.isVisible = mode == 3 || mode == 4
         pref("_popup_neon_transparency")?.isVisible = mode == 3 || mode == 4
     }

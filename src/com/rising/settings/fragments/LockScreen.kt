@@ -103,17 +103,14 @@ class LockScreen : OptimizedSettingsFragment() {
         super.onCreate(savedInstanceState)
 
         addPreferencesFromResource(R.xml.rising_settings_lockscreen)
-        findPreference<Preference>("rising_stacks_effect")?.setOnPreferenceChangeListener { _, value ->
-            updateStacksEffectVisibility(value.toString().toIntOrNull() ?: 0)
-            true
-        }
+        bindUnifiedStyle("rising_stacks_effect", "rising_stacks_outline",
+            styleCount = 1, defaultStyle = 1) { effect -> updateStacksEffectVisibility(effect) }
         updateStacksEffectVisibility()
-        findPreference<Preference>("power_menu_tile_color_effect")?.setOnPreferenceChangeListener { _, value ->
-            findPreference<Preference>("power_menu_glow_intensity")?.isVisible =
-                (value.toString().toIntOrNull() ?: -1) in 5..6
-            findPreference<Preference>("power_menu_neon_transparency")?.isVisible =
-                (value.toString().toIntOrNull() ?: -1) in 5..6
-            true
+        bindUnifiedStyle("power_menu_tile_color_effect", "power_menu_tile_style") { effect ->
+            findPreference<Preference>("power_menu_glow_intensity")?.isVisible = effect in 5..6
+            findPreference<Preference>("power_menu_neon_transparency")?.isVisible = effect in 5..6
+            findPreference<Preference>("power_menu_tile_color_first")?.isVisible = effect in 1..6
+            findPreference<Preference>("power_menu_tile_color_second")?.isVisible = effect in listOf(2, 4, 6)
         }
         updatePowerGlowVisibility()
 
@@ -222,6 +219,8 @@ class LockScreen : OptimizedSettingsFragment() {
             UserHandle.USER_CURRENT)
         findPreference<Preference>("power_menu_glow_intensity")?.isVisible = effect in 5..6
         findPreference<Preference>("power_menu_neon_transparency")?.isVisible = effect in 5..6
+        findPreference<Preference>("power_menu_tile_color_first")?.isVisible = effect in 1..6
+        findPreference<Preference>("power_menu_tile_color_second")?.isVisible = effect in listOf(2, 4, 6)
     }
 
     private fun updateRisingStacksIconPacks() {

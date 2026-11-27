@@ -17,22 +17,13 @@ class CredentialColors : SettingsPreferenceFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         addPreferencesFromResource(R.xml.rising_credential_colors)
-        findPreference<Preference>("rising_pin_effect")?.setOnPreferenceChangeListener { _, value ->
-            updateEffect(value.toString().toIntOrNull() ?: 0)
-            true
-        }
+        bindUnifiedStyle("rising_pin_effect", "rising_pin_style", styleCount = 7) { effect -> updateEffect(effect) }
         findPreference<Preference>("rising_knock_effect")?.setOnPreferenceChangeListener { _, value ->
             updateKnockEffect(value.toString().toIntOrNull() ?: 0)
             true
         }
-        findPreference<Preference>("rising_password_effect")?.setOnPreferenceChangeListener { _, value ->
-            updatePasswordEffect(value.toString().toIntOrNull() ?: 0)
-            true
-        }
-        findPreference<Preference>("rising_pattern_effect")?.setOnPreferenceChangeListener { _, value ->
-            updatePatternEffect(value.toString().toIntOrNull() ?: 0)
-            true
-        }
+        bindUnifiedStyle("rising_password_effect", "rising_password_style", styleCount = 7) { effect -> updatePasswordEffect(effect) }
+        bindUnifiedStyle("rising_pattern_effect", "rising_pattern_style", styleCount = 1) { effect -> updatePatternEffect(effect) }
     }
     override fun onResume() {
         super.onResume()
@@ -89,7 +80,10 @@ class CredentialColors : SettingsPreferenceFragment() {
         findPreference<Preference>("rising_pattern_neon_transparency")?.isVisible = effect == 3 || effect == 4
     }
     private fun updateEffect(effect: Int) {
-        listOf("rising_pin_shape", "rising_pin_first_color", "rising_pin_digit_color").forEach {
+        val pinStyle = Settings.System.getIntForUser(requireContext().contentResolver,
+            "rising_pin_style", 0, UserHandle.USER_CURRENT)
+        findPreference<Preference>("rising_pin_shape")?.isVisible = effect != 0 || pinStyle != 0
+        listOf("rising_pin_first_color", "rising_pin_digit_color").forEach {
             findPreference<Preference>(it)?.isVisible = effect != 0
         }
         findPreference<Preference>("rising_pin_second_color")?.isVisible = effect == 2 || effect == 4

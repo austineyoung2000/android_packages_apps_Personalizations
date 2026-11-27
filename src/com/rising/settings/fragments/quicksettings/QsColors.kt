@@ -10,6 +10,7 @@ import android.provider.Settings
 import androidx.preference.Preference
 import com.android.internal.logging.nano.MetricsProto
 import com.android.settings.R
+import com.rising.settings.fragments.bindUnifiedStyle
 import com.android.settings.SettingsPreferenceFragment
 import com.android.settings.search.BaseSearchIndexProvider
 import com.android.settingslib.search.SearchIndexable
@@ -23,15 +24,28 @@ class QsColors : SettingsPreferenceFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val resolver = requireContext().contentResolver
+        val oldStyle = Settings.System.getIntForUser(resolver, "qs_compose_tile_style", 0, UserHandle.USER_CURRENT)
         listOf("active", "inactive").forEach { kind ->
-            val resolver = requireContext().contentResolver
             val key = "qs_${kind}_background_effect"
-            if (Settings.System.getIntForUser(resolver, key, -1, UserHandle.USER_CURRENT) == -1) {
+            var effect = Settings.System.getIntForUser(resolver, key, -1, UserHandle.USER_CURRENT)
+            if (effect == -1) {
                 val enabled = Settings.System.getIntForUser(resolver, "qs_${kind}_background_color_enabled", 0, UserHandle.USER_CURRENT) != 0
                 val gradient = Settings.System.getIntForUser(resolver, "qs_${kind}_gradient_enabled", 0, UserHandle.USER_CURRENT) != 0
-                Settings.System.putIntForUser(resolver, key, if (!enabled) 0 else if (gradient) 2 else 1, UserHandle.USER_CURRENT)
+                effect = if (!enabled) 0 else if (gradient) 2 else 1
             }
+            if (effect == 0 && oldStyle in 1..7) effect = oldStyle + 8
+            Settings.System.putIntForUser(resolver, key, effect, UserHandle.USER_CURRENT)
         }
+        if (oldStyle != 0) Settings.System.putIntForUser(resolver,
+            "qs_compose_tile_style", 0, UserHandle.USER_CURRENT)
+        val brightnessEffect = Settings.System.getIntForUser(resolver, "qs_brightness_color_effect", 0, UserHandle.USER_CURRENT)
+        val brightnessGradient = Settings.System.getIntForUser(resolver, "qs_brightness_gradient_enabled", 0, UserHandle.USER_CURRENT) != 0
+        val brightnessColor = Settings.System.getIntForUser(resolver, "qs_brightness_color_enabled", 0, UserHandle.USER_CURRENT) != 0
+        if (brightnessEffect == 0 && brightnessGradient && brightnessColor) {
+            Settings.System.putIntForUser(resolver, "qs_brightness_color_effect", 3, UserHandle.USER_CURRENT)
+        }
+        if (brightnessGradient) Settings.System.putIntForUser(resolver, "qs_brightness_gradient_enabled", 0, UserHandle.USER_CURRENT)
         addPreferencesFromResource(R.xml.rising_settings_qs_colors)
         listOf("active", "inactive").forEach { kind ->
             findPreference<Preference>("qs_${kind}_background_effect")?.setOnPreferenceChangeListener { _, value ->
@@ -39,12 +53,10 @@ class QsColors : SettingsPreferenceFragment() {
                 true
             }
         }
-        findPreference<Preference>("qs_brightness_color_effect")?.setOnPreferenceChangeListener { _, value ->
-            findPreference<Preference>("qs_brightness_glow_intensity")?.isVisible =
-                (value.toString().toIntOrNull() ?: 0) in 1..2
-            findPreference<Preference>("qs_brightness_neon_transparency")?.isVisible =
-                (value.toString().toIntOrNull() ?: 0) in 1..2
-            true
+        bindUnifiedStyle("qs_brightness_color_effect", "qs_brightness_style") { effect ->
+            findPreference<Preference>("qs_brightness_glow_intensity")?.isVisible = effect in 1..2
+            findPreference<Preference>("qs_brightness_neon_transparency")?.isVisible = effect in 1..2
+            findPreference<Preference>("qs_brightness_gradient_end_color")?.isVisible = effect == 2 || effect == 3
         }
         updateGlowVisibility()
     }
@@ -59,6 +71,7 @@ class QsColors : SettingsPreferenceFragment() {
             "qs_brightness_color_effect", 0, UserHandle.USER_CURRENT)
         findPreference<Preference>("qs_brightness_glow_intensity")?.isVisible = brightnessEffect in 1..2
         findPreference<Preference>("qs_brightness_neon_transparency")?.isVisible = brightnessEffect in 1..2
+        findPreference<Preference>("qs_brightness_gradient_end_color")?.isVisible = brightnessEffect == 2 || brightnessEffect == 3
         listOf("active", "inactive").forEach { kind ->
             val effect = Settings.System.getIntForUser(requireContext().contentResolver,
                 "qs_${kind}_background_effect", 0, UserHandle.USER_CURRENT)
@@ -74,7 +87,7 @@ class QsColors : SettingsPreferenceFragment() {
             findPreference<Preference>("qs_${kind}_${glass}_glass_softness")?.isVisible = effect == value
             findPreference<Preference>("qs_${kind}_${glass}_glass_transparency")?.isVisible = effect == value
         }
-        findPreference<Preference>("qs_${kind}_background_color")?.isVisible = effect != 0
+        findPreference<Preference>("qs_${kind}_background_color")?.isVisible = effect in 1..8
         findPreference<Preference>("qs_${kind}_gradient_end_color")?.isVisible = effect in listOf(2, 4, 6)
     }
 

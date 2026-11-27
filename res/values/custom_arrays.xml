@@ -24,6 +24,7 @@
         <item>@string/dynamic_popup_dual_neon</item>
         <item>@string/dynamic_popup_tinted_blur</item>
         <item>@string/dynamic_popup_dual_blur</item>
+        <item>Two-color gradient</item>
     </string-array>
 
     <string-array name="dynamic_island_popup_color_mode_values" translatable="false">
@@ -34,6 +35,7 @@
         <item>4</item>
         <item>5</item>
         <item>6</item>
+        <item>7</item>
     </string-array>
 
     <!-- Animation Override -->

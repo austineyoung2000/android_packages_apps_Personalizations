@@ -52,12 +52,11 @@ class Notifications : OptimizedSettingsFragment(), Preference.OnPreferenceChange
         super.onCreate(savedInstanceState)
 
         addPreferencesFromResource(R.xml.rising_settings_notification)
-        findPreference<Preference>("notification_card_color_mode")?.setOnPreferenceChangeListener { _, value ->
-            findPreference<Preference>("notification_card_glow_intensity")?.isVisible =
-                (value.toString().toIntOrNull() ?: -1) in 5..6
-            findPreference<Preference>("notification_card_neon_transparency")?.isVisible =
-                (value.toString().toIntOrNull() ?: -1) in 5..6
-            true
+        bindUnifiedStyle("notification_card_color_mode", "notification_card_style") { effect ->
+            findPreference<Preference>("notification_card_glow_intensity")?.isVisible = effect in 5..6
+            findPreference<Preference>("notification_card_neon_transparency")?.isVisible = effect in 5..6
+            findPreference<Preference>("notification_card_color_first")?.isVisible = effect in 1..6
+            findPreference<Preference>("notification_card_color_second")?.isVisible = effect in listOf(2, 4, 6)
         }
         updateGlowVisibility()
         mCompactHUNPref = findCachedPreference(COMPACT_HUN_KEY)
@@ -75,6 +74,8 @@ class Notifications : OptimizedSettingsFragment(), Preference.OnPreferenceChange
             UserHandle.USER_CURRENT)
         findPreference<Preference>("notification_card_glow_intensity")?.isVisible = effect in 5..6
         findPreference<Preference>("notification_card_neon_transparency")?.isVisible = effect in 5..6
+        findPreference<Preference>("notification_card_color_first")?.isVisible = effect in 1..6
+        findPreference<Preference>("notification_card_color_second")?.isVisible = effect in listOf(2, 4, 6)
     }
 
     override fun onPreferenceChange(preference: Preference, newValue: Any?): Boolean {

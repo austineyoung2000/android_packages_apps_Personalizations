@@ -37,9 +37,8 @@ class PieSettings : SettingsPreferenceFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         addPreferencesFromResource(R.xml.rising_pie_settings)
-        findPreference<Preference>("pie_style")?.setOnPreferenceChangeListener { _, value ->
-            updateAppearanceVisibility(value.toString().toIntOrNull() ?: 2)
-            true
+        bindUnifiedStyle("pie_style", "pie_surface_style", defaultEffect = 2) { effect ->
+            updateAppearanceVisibility(effect)
         }
         updateAppearanceVisibility()
         val category = findPreference<PreferenceCategory>("pie_slices_category") ?: return
