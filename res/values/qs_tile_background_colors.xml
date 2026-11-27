@@ -20,6 +20,8 @@
     </string-array>
     <string name="qs_glass_tint_intensity_title">Glass tint intensity</string>
     <string name="qs_glass_tint_intensity_summary">Adjust the first tile color applied to this glass effect</string>
+    <string name="qs_glass_transparency_title">Glass background transparency</string>
+    <string name="qs_glass_transparency_summary">Increase transparency while keeping the glass shine and softness</string>
     <string name="qs_glass_softness_title">Glass softness</string>
     <string name="qs_glass_softness_summary">Adjust how softly the background is blurred through the glass</string>
     <string name="qs_neon_transparency_title">Neon background transparency</string>

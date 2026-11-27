@@ -68,6 +68,13 @@
             settings:min="0" settings:interval="1" settings:units="%" />
 
         <com.android.settings.preferences.SystemSettingSeekBarPreference
+            android:key="qs_active_frosted_glass_transparency"
+            android:title="@string/qs_glass_transparency_title"
+            android:summary="@string/qs_glass_transparency_summary"
+            android:defaultValue="0" android:max="100"
+            settings:min="0" settings:interval="1" settings:units="%" />
+
+        <com.android.settings.preferences.SystemSettingSeekBarPreference
             android:key="qs_active_liquid_glass_tint"
             android:title="@string/qs_glass_tint_intensity_title"
             android:summary="@string/qs_glass_tint_intensity_summary"
@@ -79,6 +86,13 @@
             android:title="@string/qs_glass_softness_title"
             android:summary="@string/qs_glass_softness_summary"
             android:defaultValue="20" android:max="100"
+            settings:min="0" settings:interval="1" settings:units="%" />
+
+        <com.android.settings.preferences.SystemSettingSeekBarPreference
+            android:key="qs_active_liquid_glass_transparency"
+            android:title="@string/qs_glass_transparency_title"
+            android:summary="@string/qs_glass_transparency_summary"
+            android:defaultValue="0" android:max="100"
             settings:min="0" settings:interval="1" settings:units="%" />
 
         <com.android.settings.preferences.colorpicker.SystemSettingColorPickerPreference
@@ -130,6 +144,13 @@
             settings:min="0" settings:interval="1" settings:units="%" />
 
         <com.android.settings.preferences.SystemSettingSeekBarPreference
+            android:key="qs_inactive_frosted_glass_transparency"
+            android:title="@string/qs_glass_transparency_title"
+            android:summary="@string/qs_glass_transparency_summary"
+            android:defaultValue="0" android:max="100"
+            settings:min="0" settings:interval="1" settings:units="%" />
+
+        <com.android.settings.preferences.SystemSettingSeekBarPreference
             android:key="qs_inactive_liquid_glass_tint"
             android:title="@string/qs_glass_tint_intensity_title"
             android:summary="@string/qs_glass_tint_intensity_summary"
@@ -141,6 +162,13 @@
             android:title="@string/qs_glass_softness_title"
             android:summary="@string/qs_glass_softness_summary"
             android:defaultValue="20" android:max="100"
+            settings:min="0" settings:interval="1" settings:units="%" />
+
+        <com.android.settings.preferences.SystemSettingSeekBarPreference
+            android:key="qs_inactive_liquid_glass_transparency"
+            android:title="@string/qs_glass_transparency_title"
+            android:summary="@string/qs_glass_transparency_summary"
+            android:defaultValue="0" android:max="100"
             settings:min="0" settings:interval="1" settings:units="%" />
 
         <com.android.settings.preferences.colorpicker.SystemSettingColorPickerPreference

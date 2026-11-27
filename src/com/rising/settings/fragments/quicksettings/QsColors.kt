@@ -72,6 +72,7 @@ class QsColors : SettingsPreferenceFragment() {
         listOf("frosted" to 7, "liquid" to 8).forEach { (glass, value) ->
             findPreference<Preference>("qs_${kind}_${glass}_glass_tint")?.isVisible = effect == value
             findPreference<Preference>("qs_${kind}_${glass}_glass_softness")?.isVisible = effect == value
+            findPreference<Preference>("qs_${kind}_${glass}_glass_transparency")?.isVisible = effect == value
         }
         findPreference<Preference>("qs_${kind}_background_color")?.isVisible = effect != 0
         findPreference<Preference>("qs_${kind}_gradient_end_color")?.isVisible = effect in listOf(2, 4, 6)
