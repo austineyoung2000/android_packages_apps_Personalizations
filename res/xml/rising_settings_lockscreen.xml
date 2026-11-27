@@ -62,6 +62,12 @@
             android:defaultValue="true" />
 
         <com.android.settings.preferences.SystemSettingSwitchPreference
+            android:key="hide_lockscreen_status_bar"
+            android:title="@string/hide_lockscreen_status_bar_title"
+            android:summary="@string/hide_lockscreen_status_bar_summary"
+            android:defaultValue="false" />
+
+        <com.android.settings.preferences.SystemSettingSwitchPreference
             android:key="lockscreen_show_carrier"
             android:title="@string/lockscreen_show_carrier_title"
             android:summary="@string/lockscreen_show_carrier_summary"
