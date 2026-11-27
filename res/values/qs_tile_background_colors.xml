@@ -2,9 +2,9 @@
 <resources>
     <string name="qs_backdrop_category">QS background</string>
     <string name="qs_background_transparency_title">Background transparency</string>
-    <string name="qs_background_transparency_summary">Make the shade background more transparent without changing tile effects</string>
+    <string name="qs_background_transparency_summary">Adjust the background behind Quick Settings and notifications; 100% makes it transparent</string>
     <string name="qs_backdrop_blur_title">Backdrop blur strength</string>
-    <string name="qs_backdrop_blur_summary">Adjust blur behind the open shade; does not change glass tile softness</string>
+    <string name="qs_backdrop_blur_summary">Adjust how much the app or wallpaper behind the shade is blurred</string>
     <string name="qs_tile_background_colors_title">Tile appearance and colors</string>
     <string name="qs_active_background_enabled_title">Custom active tile color</string>
     <string name="qs_tile_background_custom_summary">Use a custom background instead of the theme color</string>

@@ -9,23 +9,6 @@
         android:key="lottie_qs_color_style"
         lineage:lottie_rawRes="@raw/lottie_qs_color_style" />
 
-    <PreferenceCategory android:title="@string/qs_backdrop_category">
-        <com.android.settings.preferences.SystemSettingSeekBarPreference
-            android:key="qs_background_transparency"
-            android:title="@string/qs_background_transparency_title"
-            android:summary="@string/qs_background_transparency_summary"
-            android:defaultValue="0" android:max="100"
-            settings:min="0" settings:interval="1" settings:units="%"
-            lineage:position="top" />
-        <com.android.settings.preferences.SystemSettingSeekBarPreference
-            android:key="qs_backdrop_blur_strength"
-            android:title="@string/qs_backdrop_blur_title"
-            android:summary="@string/qs_backdrop_blur_summary"
-            android:defaultValue="100" android:max="100"
-            settings:min="0" settings:interval="1" settings:units="%"
-            lineage:position="bottom" />
-    </PreferenceCategory>
-
     <PreferenceCategory
         android:title="@string/qs_tile_background_colors_title">
 
