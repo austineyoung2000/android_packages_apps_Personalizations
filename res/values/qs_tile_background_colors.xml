@@ -23,7 +23,7 @@
     <string name="qs_glass_softness_title">Glass softness</string>
     <string name="qs_glass_softness_summary">Adjust how softly the background is blurred through the glass</string>
     <string name="qs_neon_transparency_title">Neon background transparency</string>
-    <string name="qs_neon_transparency_summary">Adjust the tile interior without changing its glow</string>
+    <string name="qs_neon_transparency_summary">Adjust the interior without changing its glow</string>
     <string name="neon_glow_intensity_title">Glow intensity</string>
     <string name="qs_icon_colors_title">Tile icon colors</string>
     <string name="qs_active_icon_color_enabled_title">Custom active icon color</string>

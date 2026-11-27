@@ -38,5 +38,6 @@ internal class DynamicPopupPreferences(
         pref("_popup_dual_color")?.isVisible = mode == 2
         pref("_popup_second_color")?.isVisible = mode == 4 || mode == 6 || mode == 2 && dual
         pref("_popup_glow_intensity")?.isVisible = mode == 3 || mode == 4
+        pref("_popup_neon_transparency")?.isVisible = mode == 3 || mode == 4
     }
 }

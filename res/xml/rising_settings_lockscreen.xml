@@ -155,6 +155,13 @@
             android:key="rising_stacks_glow_intensity" android:title="@string/rising_stacks_glow_intensity"
             android:defaultValue="60" android:max="100" settings:min="0" settings:interval="1"
             settings:units="%" android:dependency="rising_stacks_enabled" lineage:position="bottom" />
+
+        <com.android.settings.preferences.SystemSettingSeekBarPreference
+            android:key="rising_stacks_neon_transparency"
+            android:title="@string/qs_neon_transparency_title"
+            android:summary="@string/qs_neon_transparency_summary"
+            android:defaultValue="78" android:max="100"
+            settings:min="0" settings:interval="1" settings:units="%" />
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -300,6 +307,13 @@
             settings:interval="1"
             settings:units="%"
             android:dependency="global_actions_use_compose_dialog" />
+
+        <com.android.settings.preferences.SystemSettingSeekBarPreference
+            android:key="power_menu_neon_transparency"
+            android:title="@string/qs_neon_transparency_title"
+            android:summary="@string/qs_neon_transparency_summary"
+            android:defaultValue="78" android:max="100"
+            settings:min="0" settings:interval="1" settings:units="%" />
 
         <com.android.settings.preferences.colorpicker.SystemSettingColorPickerPreference
             android:key="power_menu_tile_color_first"

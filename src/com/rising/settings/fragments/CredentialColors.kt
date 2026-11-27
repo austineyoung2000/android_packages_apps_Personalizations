@@ -74,16 +74,19 @@ class CredentialColors : SettingsPreferenceFragment() {
         findPreference<Preference>("rising_password_first_color")?.isVisible = effect != 0
         findPreference<Preference>("rising_password_second_color")?.isVisible = effect == 2 || effect == 4
         findPreference<Preference>("rising_password_glow_intensity")?.isVisible = effect == 3 || effect == 4
+        findPreference<Preference>("rising_password_neon_transparency")?.isVisible = effect == 3 || effect == 4
     }
     private fun updateKnockEffect(effect: Int) {
         findPreference<Preference>("rising_knock_first_color")?.isVisible = effect != 0
         findPreference<Preference>("rising_knock_second_color")?.isVisible = effect == 2 || effect == 4
         findPreference<Preference>("rising_knock_glow_intensity")?.isVisible = effect == 3 || effect == 4
+        findPreference<Preference>("rising_knock_neon_transparency")?.isVisible = effect == 3 || effect == 4
     }
     private fun updatePatternEffect(effect: Int) {
         findPreference<Preference>("rising_pattern_first_color")?.isVisible = effect != 0
         findPreference<Preference>("rising_pattern_second_color")?.isVisible = effect == 2 || effect == 4
         findPreference<Preference>("rising_pattern_glow_intensity")?.isVisible = effect == 3 || effect == 4
+        findPreference<Preference>("rising_pattern_neon_transparency")?.isVisible = effect == 3 || effect == 4
     }
     private fun updateEffect(effect: Int) {
         listOf("rising_pin_shape", "rising_pin_first_color", "rising_pin_digit_color").forEach {
@@ -91,6 +94,7 @@ class CredentialColors : SettingsPreferenceFragment() {
         }
         findPreference<Preference>("rising_pin_second_color")?.isVisible = effect == 2 || effect == 4
         findPreference<Preference>("rising_pin_glow_intensity")?.isVisible = effect == 3 || effect == 4
+        findPreference<Preference>("rising_pin_neon_transparency")?.isVisible = effect == 3 || effect == 4
     }
     override fun getMetricsCategory(): Int = MetricsProto.MetricsEvent.VIEW_UNKNOWN
 }

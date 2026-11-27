@@ -112,6 +112,7 @@ class PieSettings : SettingsPreferenceFragment() {
         findPreference<Preference>("pie_first_color")?.isVisible = effect in listOf(0, 3, 4, 5)
         findPreference<Preference>("pie_second_color")?.isVisible = effect == 3 || effect == 5
         findPreference<Preference>("pie_glow_intensity")?.isVisible = effect == 0 || effect == 3
+        findPreference<Preference>("pie_neon_transparency")?.isVisible = effect == 0 || effect == 3
     }
 
     private fun setupIconPacks(pref: ListPreference) {

@@ -55,6 +55,8 @@ class Notifications : OptimizedSettingsFragment(), Preference.OnPreferenceChange
         findPreference<Preference>("notification_card_color_mode")?.setOnPreferenceChangeListener { _, value ->
             findPreference<Preference>("notification_card_glow_intensity")?.isVisible =
                 (value.toString().toIntOrNull() ?: -1) in 5..6
+            findPreference<Preference>("notification_card_neon_transparency")?.isVisible =
+                (value.toString().toIntOrNull() ?: -1) in 5..6
             true
         }
         updateGlowVisibility()
@@ -72,6 +74,7 @@ class Notifications : OptimizedSettingsFragment(), Preference.OnPreferenceChange
         val effect = Settings.System.getIntForUser(resolver, "notification_card_color_mode", 0,
             UserHandle.USER_CURRENT)
         findPreference<Preference>("notification_card_glow_intensity")?.isVisible = effect in 5..6
+        findPreference<Preference>("notification_card_neon_transparency")?.isVisible = effect in 5..6
     }
 
     override fun onPreferenceChange(preference: Preference, newValue: Any?): Boolean {

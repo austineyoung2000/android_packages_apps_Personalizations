@@ -36,6 +36,13 @@
         android:key="pie_glow_intensity" android:title="@string/rising_pie_glow_intensity"
         android:defaultValue="60" android:max="100" settings:min="0" settings:interval="1"
         settings:units="%" android:dependency="pie_controls" />
+
+        <com.android.settings.preferences.SystemSettingSeekBarPreference
+            android:key="pie_neon_transparency"
+            android:title="@string/qs_neon_transparency_title"
+            android:summary="@string/qs_neon_transparency_summary"
+            android:defaultValue="78" android:max="100"
+            settings:min="0" settings:interval="1" settings:units="%" />
     <com.android.settings.preferences.SystemSettingSwitchPreference
         android:key="pie_clock" android:title="@string/rising_pie_clock"
         android:defaultValue="true" android:dependency="pie_controls" />

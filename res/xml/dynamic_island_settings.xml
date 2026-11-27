@@ -96,6 +96,13 @@
         <com.android.settings.preferences.SystemSettingSeekBarPreference
             android:key="status_bar_dynamic_island_popup_glow_intensity" android:title="@string/dynamic_popup_glow_intensity"
             android:defaultValue="60" android:max="100" settings:min="0" settings:interval="1" settings:units="%" />
+
+        <com.android.settings.preferences.SystemSettingSeekBarPreference
+            android:key="status_bar_dynamic_island_popup_neon_transparency"
+            android:title="@string/qs_neon_transparency_title"
+            android:summary="@string/qs_neon_transparency_summary"
+            android:defaultValue="80" android:max="100"
+            settings:min="0" settings:interval="1" settings:units="%" />
     </PreferenceCategory>
 
     <PreferenceCategory

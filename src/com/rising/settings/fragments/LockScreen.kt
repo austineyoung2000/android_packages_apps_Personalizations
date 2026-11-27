@@ -111,6 +111,8 @@ class LockScreen : OptimizedSettingsFragment() {
         findPreference<Preference>("power_menu_tile_color_effect")?.setOnPreferenceChangeListener { _, value ->
             findPreference<Preference>("power_menu_glow_intensity")?.isVisible =
                 (value.toString().toIntOrNull() ?: -1) in 5..6
+            findPreference<Preference>("power_menu_neon_transparency")?.isVisible =
+                (value.toString().toIntOrNull() ?: -1) in 5..6
             true
         }
         updatePowerGlowVisibility()
@@ -211,6 +213,7 @@ class LockScreen : OptimizedSettingsFragment() {
         findPreference<Preference>("rising_stacks_first_color")?.isVisible = effect in 1..4
         findPreference<Preference>("rising_stacks_second_color")?.isVisible = effect == 2 || effect == 4
         findPreference<Preference>("rising_stacks_glow_intensity")?.isVisible = effect == 3 || effect == 4
+        findPreference<Preference>("rising_stacks_neon_transparency")?.isVisible = effect == 3 || effect == 4
     }
 
     private fun updatePowerGlowVisibility() {
@@ -218,6 +221,7 @@ class LockScreen : OptimizedSettingsFragment() {
         val effect = Settings.System.getIntForUser(resolver, "power_menu_tile_color_effect", 0,
             UserHandle.USER_CURRENT)
         findPreference<Preference>("power_menu_glow_intensity")?.isVisible = effect in 5..6
+        findPreference<Preference>("power_menu_neon_transparency")?.isVisible = effect in 5..6
     }
 
     private fun updateRisingStacksIconPacks() {
