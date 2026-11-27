@@ -34,9 +34,9 @@ internal class DynamicPopupPreferences(
     fun refresh() = update(readMode(), readDual())
 
     private fun update(mode: Int, dual: Boolean) {
-        pref("_popup_first_color")?.isVisible = mode in 2..4
+        pref("_popup_first_color")?.isVisible = mode in 2..6
         pref("_popup_dual_color")?.isVisible = mode == 2
-        pref("_popup_second_color")?.isVisible = mode == 4 || mode == 2 && dual
+        pref("_popup_second_color")?.isVisible = mode == 4 || mode == 6 || mode == 2 && dual
         pref("_popup_glow_intensity")?.isVisible = mode == 3 || mode == 4
     }
 }
