@@ -13,11 +13,15 @@
     <string name="qs_active_background_effect_title">Active tile color effect</string>
     <string name="qs_inactive_background_effect_title">Inactive tile color effect</string>
     <string-array name="qs_tile_effect_entries">
-        <item>Native</item><item>Solid</item><item>Two-color gradient</item><item>Blur</item><item>Two-color blur</item><item>Neon glow</item><item>Dual neon glow</item>
+        <item>Native</item><item>Solid</item><item>Two-color gradient</item><item>Blur</item><item>Two-color blur</item><item>Neon glow</item><item>Dual neon glow</item><item>ColorOS-inspired Frosted Glass</item><item>ColorOS-inspired Liquid Glass</item>
     </string-array>
     <string-array name="qs_tile_effect_values" translatable="false">
-        <item>0</item><item>1</item><item>2</item><item>3</item><item>4</item><item>5</item><item>6</item>
+        <item>0</item><item>1</item><item>2</item><item>3</item><item>4</item><item>5</item><item>6</item><item>7</item><item>8</item>
     </string-array>
+    <string name="qs_glass_tint_intensity_title">Glass tint intensity</string>
+    <string name="qs_glass_tint_intensity_summary">Adjust the first tile color applied to this glass effect</string>
+    <string name="qs_glass_softness_title">Glass softness</string>
+    <string name="qs_glass_softness_summary">Adjust how softly the background is blurred through the glass</string>
     <string name="neon_glow_intensity_title">Glow intensity</string>
     <string name="qs_icon_colors_title">Tile icon colors</string>
     <string name="qs_active_icon_color_enabled_title">Custom active icon color</string>

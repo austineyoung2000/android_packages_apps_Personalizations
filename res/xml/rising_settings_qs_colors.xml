@@ -46,6 +46,34 @@
             settings:interval="1"
             settings:units="%" />
 
+        <com.android.settings.preferences.SystemSettingSeekBarPreference
+            android:key="qs_active_frosted_glass_tint"
+            android:title="@string/qs_glass_tint_intensity_title"
+            android:summary="@string/qs_glass_tint_intensity_summary"
+            android:defaultValue="35" android:max="100"
+            settings:min="0" settings:interval="1" settings:units="%" />
+
+        <com.android.settings.preferences.SystemSettingSeekBarPreference
+            android:key="qs_active_frosted_glass_softness"
+            android:title="@string/qs_glass_softness_title"
+            android:summary="@string/qs_glass_softness_summary"
+            android:defaultValue="60" android:max="100"
+            settings:min="0" settings:interval="1" settings:units="%" />
+
+        <com.android.settings.preferences.SystemSettingSeekBarPreference
+            android:key="qs_active_liquid_glass_tint"
+            android:title="@string/qs_glass_tint_intensity_title"
+            android:summary="@string/qs_glass_tint_intensity_summary"
+            android:defaultValue="35" android:max="100"
+            settings:min="0" settings:interval="1" settings:units="%" />
+
+        <com.android.settings.preferences.SystemSettingSeekBarPreference
+            android:key="qs_active_liquid_glass_softness"
+            android:title="@string/qs_glass_softness_title"
+            android:summary="@string/qs_glass_softness_summary"
+            android:defaultValue="20" android:max="100"
+            settings:min="0" settings:interval="1" settings:units="%" />
+
         <com.android.settings.preferences.colorpicker.SystemSettingColorPickerPreference
             android:key="qs_active_background_color"
             android:title="@string/qs_active_background_first_title"
@@ -72,6 +100,34 @@
             settings:min="0"
             settings:interval="1"
             settings:units="%" />
+
+        <com.android.settings.preferences.SystemSettingSeekBarPreference
+            android:key="qs_inactive_frosted_glass_tint"
+            android:title="@string/qs_glass_tint_intensity_title"
+            android:summary="@string/qs_glass_tint_intensity_summary"
+            android:defaultValue="20" android:max="100"
+            settings:min="0" settings:interval="1" settings:units="%" />
+
+        <com.android.settings.preferences.SystemSettingSeekBarPreference
+            android:key="qs_inactive_frosted_glass_softness"
+            android:title="@string/qs_glass_softness_title"
+            android:summary="@string/qs_glass_softness_summary"
+            android:defaultValue="60" android:max="100"
+            settings:min="0" settings:interval="1" settings:units="%" />
+
+        <com.android.settings.preferences.SystemSettingSeekBarPreference
+            android:key="qs_inactive_liquid_glass_tint"
+            android:title="@string/qs_glass_tint_intensity_title"
+            android:summary="@string/qs_glass_tint_intensity_summary"
+            android:defaultValue="20" android:max="100"
+            settings:min="0" settings:interval="1" settings:units="%" />
+
+        <com.android.settings.preferences.SystemSettingSeekBarPreference
+            android:key="qs_inactive_liquid_glass_softness"
+            android:title="@string/qs_glass_softness_title"
+            android:summary="@string/qs_glass_softness_summary"
+            android:defaultValue="20" android:max="100"
+            settings:min="0" settings:interval="1" settings:units="%" />
 
         <com.android.settings.preferences.colorpicker.SystemSettingColorPickerPreference
             android:key="qs_inactive_background_color"
