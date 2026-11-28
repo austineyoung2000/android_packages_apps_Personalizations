@@ -29,6 +29,7 @@ import android.widget.Toast
 
 import com.android.internal.logging.nano.MetricsProto
 
+import androidx.preference.ListPreference
 import androidx.preference.Preference
 
 import com.android.settings.R
@@ -62,6 +63,54 @@ class AODSettings : OptimizedSettingsFragment() {
         }
     }
     
+    override fun onResume() {
+        super.onResume()
+        updateAmbientPeekIconPacks()
+    }
+
+    private fun updateAmbientPeekIconPacks() {
+        val ctx = context ?: return
+        val pref = findPreference<ListPreference>("ambient_peek_icon_pack_picker") ?: return
+        val pm = ctx.packageManager
+        val packs = linkedMapOf<String, String>()
+        val actions = listOf(
+            "org.adw.launcher.THEMES",
+            "com.novalauncher.THEME",
+            "com.anddoes.launcher.THEME",
+            "com.gau.go.launcherex.theme"
+        )
+        actions.forEach { action ->
+            pm.queryIntentActivities(Intent(action), 0).forEach results@ { result ->
+                val info = result.activityInfo?.applicationInfo ?: return@results
+                packs[info.packageName] = info.loadLabel(pm).toString()
+            }
+        }
+        val options = packs.entries.sortedBy { it.value.lowercase() }
+        val saved = Settings.System.getStringForUser(
+            ctx.contentResolver, "ambient_peek_icon_pack", UserHandle.USER_CURRENT
+        ).orEmpty()
+        val names = mutableListOf(getString(R.string.ambient_peek_icon_pack_default))
+        val values = mutableListOf("")
+        options.forEach { names.add(it.value); values.add(it.key) }
+        if (saved.isNotEmpty() && saved !in values) {
+            names.add(saved)
+            values.add(saved)
+        }
+        pref.entries = names.toTypedArray()
+        pref.entryValues = values.toTypedArray()
+        pref.value = saved
+        pref.summary = names[values.indexOf(saved)]
+        pref.setOnPreferenceChangeListener { _, newValue ->
+            val selected = newValue as String
+            val success = Settings.System.putStringForUser(
+                ctx.contentResolver, "ambient_peek_icon_pack",
+                selected.ifEmpty { null }, UserHandle.USER_CURRENT
+            )
+            if (success) pref.summary = names[values.indexOf(selected)]
+            success
+        }
+    }
+
     override fun onPreferenceTreeClick(preference: Preference): Boolean {
         if (preference == mCustomImagePreference) {
             try {
