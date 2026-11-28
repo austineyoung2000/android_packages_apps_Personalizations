@@ -17,6 +17,8 @@ package com.rising.settings.fragments
 
 import android.content.Context
 import android.os.Bundle
+import android.os.UserHandle
+import android.provider.Settings
 import androidx.preference.Preference
 import com.android.internal.logging.nano.MetricsProto
 import com.android.settings.R
@@ -50,10 +52,32 @@ class Notifications : OptimizedSettingsFragment(), Preference.OnPreferenceChange
         super.onCreate(savedInstanceState)
 
         addPreferencesFromResource(R.xml.rising_settings_notification)
+        bindUnifiedStyle("notification_card_color_mode", "notification_card_style") { effect ->
+            findPreference<Preference>("notification_card_glow_intensity")?.isVisible = effect in 5..6
+            findPreference<Preference>("notification_card_neon_transparency")?.isVisible = effect in 5..6
+            findPreference<Preference>("notification_card_color_first")?.isVisible = effect in 1..6
+            findPreference<Preference>("notification_card_color_second")?.isVisible = effect in listOf(2, 4, 6)
+        }
+        updateGlowVisibility()
         mCompactHUNPref = findCachedPreference(COMPACT_HUN_KEY)
         mCompactHUNPref?.onPreferenceChangeListener = this
     }
     
+    override fun onResume() {
+        super.onResume()
+        updateGlowVisibility()
+    }
+
+    private fun updateGlowVisibility() {
+        val resolver = context?.contentResolver ?: return
+        val effect = Settings.System.getIntForUser(resolver, "notification_card_color_mode", 0,
+            UserHandle.USER_CURRENT)
+        findPreference<Preference>("notification_card_glow_intensity")?.isVisible = effect in 5..6
+        findPreference<Preference>("notification_card_neon_transparency")?.isVisible = effect in 5..6
+        findPreference<Preference>("notification_card_color_first")?.isVisible = effect in 1..6
+        findPreference<Preference>("notification_card_color_second")?.isVisible = effect in listOf(2, 4, 6)
+    }
+
     override fun onPreferenceChange(preference: Preference, newValue: Any?): Boolean {
         return when (preference) {
             mCompactHUNPref -> {
