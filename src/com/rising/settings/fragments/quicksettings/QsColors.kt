@@ -34,7 +34,11 @@ class QsColors : SettingsPreferenceFragment() {
                 val gradient = Settings.System.getIntForUser(resolver, "qs_${kind}_gradient_enabled", 0, UserHandle.USER_CURRENT) != 0
                 effect = if (!enabled) 0 else if (gradient) 2 else 1
             }
-            if (effect == 0 && oldStyle in 1..7) effect = oldStyle + 8
+            if (effect in 7..8) {
+                effect = 0
+            } else if (effect == 0 && oldStyle in 1..7) {
+                effect = oldStyle + 8
+            }
             Settings.System.putIntForUser(resolver, key, effect, UserHandle.USER_CURRENT)
         }
         if (oldStyle != 0) Settings.System.putIntForUser(resolver,
@@ -82,12 +86,7 @@ class QsColors : SettingsPreferenceFragment() {
     private fun updateTileVisibility(kind: String, effect: Int) {
         findPreference<Preference>("qs_${kind}_glow_intensity")?.isVisible = effect in 5..6
         findPreference<Preference>("qs_${kind}_neon_transparency")?.isVisible = effect in 5..6
-        listOf("frosted" to 7, "liquid" to 8).forEach { (glass, value) ->
-            findPreference<Preference>("qs_${kind}_${glass}_glass_tint")?.isVisible = effect == value
-            findPreference<Preference>("qs_${kind}_${glass}_glass_softness")?.isVisible = effect == value
-            findPreference<Preference>("qs_${kind}_${glass}_glass_transparency")?.isVisible = effect == value
-        }
-        findPreference<Preference>("qs_${kind}_background_color")?.isVisible = effect in 1..8
+        findPreference<Preference>("qs_${kind}_background_color")?.isVisible = effect in 1..6
         findPreference<Preference>("qs_${kind}_gradient_end_color")?.isVisible = effect in listOf(2, 4, 6)
     }
 

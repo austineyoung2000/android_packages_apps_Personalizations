@@ -19,19 +19,13 @@
     <string name="qs_inactive_background_effect_title">Inactive tile style</string>
     <string-array name="qs_tile_effect_entries">
         <item>Stock</item><item>Outline</item><item>Reflected</item><item>Shaded</item><item>Thin</item><item>Neumorph</item><item>CyberPunk</item><item>Two-Tone Accent</item>
-        <item>Solid</item><item>Two-color gradient</item><item>Blur</item><item>Two-color blur</item><item>Neon glow</item><item>Dual neon glow</item><item>ColorOS-inspired Frosted Glass</item><item>ColorOS-inspired Liquid Glass</item>
+        <item>Solid</item><item>Two-color gradient</item><item>Blur</item><item>Two-color blur</item><item>Neon glow</item><item>Dual neon glow</item>
     </string-array>
     <string-array name="qs_tile_effect_values" translatable="false">
         <item>0</item><item>9</item><item>10</item><item>11</item><item>12</item><item>13</item><item>14</item><item>15</item>
-        <item>1</item><item>2</item><item>3</item><item>4</item><item>5</item><item>6</item><item>7</item><item>8</item>
+        <item>1</item><item>2</item><item>3</item><item>4</item><item>5</item><item>6</item>
     </string-array>
     <string name="qs_selected_item_style">Selected item style</string>
-    <string name="qs_glass_tint_intensity_title">Glass tint intensity</string>
-    <string name="qs_glass_tint_intensity_summary">Adjust the first tile color applied to this glass effect</string>
-    <string name="qs_glass_transparency_title">Glass background transparency</string>
-    <string name="qs_glass_transparency_summary">Increase transparency while keeping the glass shine and softness</string>
-    <string name="qs_glass_softness_title">Glass softness</string>
-    <string name="qs_glass_softness_summary">Adjust how softly the background is blurred through the glass</string>
     <string name="qs_neon_transparency_title">Neon background transparency</string>
     <string name="qs_neon_transparency_summary">Adjust the interior without changing its glow</string>
     <string name="neon_glow_intensity_title">Glow intensity</string>
