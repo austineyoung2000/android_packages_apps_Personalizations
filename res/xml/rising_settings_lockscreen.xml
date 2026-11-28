@@ -37,6 +37,12 @@
 
 
         <com.android.settings.preferences.ui.AdaptivePreference
+            android:key="credential_colors"
+            android:title="@string/credential_colors_title"
+            android:summary="@string/credential_colors_summary"
+            android:fragment="com.rising.settings.fragments.CredentialColors" />
+
+        <com.android.settings.preferences.ui.AdaptivePreference
             android:key="lock_glymps_settings"
             android:title="@string/lock_glymps_title"
             android:summary="@string/lock_glymps_enable_summary"
@@ -54,6 +60,12 @@
             android:title="@string/lock_screen_charging_time_title"
             android:summary="@string/lock_screen_charging_time_summary"
             android:defaultValue="true" />
+
+        <com.android.settings.preferences.SystemSettingSwitchPreference
+            android:key="hide_lockscreen_status_bar"
+            android:title="@string/hide_lockscreen_status_bar_title"
+            android:summary="@string/hide_lockscreen_status_bar_summary"
+            android:defaultValue="false" />
 
         <com.android.settings.preferences.SystemSettingSwitchPreference
             android:key="lockscreen_show_carrier"
@@ -88,6 +100,66 @@
             android:dependency="ls_media_art_enabled"
             lineage:position="bottom" />
 
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/rising_stacks_title">
+
+        <com.android.settings.preferences.SystemSettingSwitchPreference
+            android:key="rising_stacks_enabled"
+            android:title="@string/rising_stacks_title"
+            android:summary="@string/rising_stacks_summary"
+            android:defaultValue="false"
+            lineage:position="top" />
+
+        <ListPreference
+            android:key="rising_stacks_icon_pack_picker"
+            android:title="@string/rising_stacks_icon_pack_title"
+            android:summary="@string/rising_stacks_icon_pack_summary"
+            android:dependency="rising_stacks_enabled"
+            android:persistent="false" />
+
+        <com.android.settings.preferences.SystemSettingSeekBarPreference
+            android:key="rising_stacks_icon_size"
+            android:title="@string/rising_stacks_icon_size"
+            android:summary="@string/rising_stacks_icon_size_summary"
+            android:defaultValue="30" android:max="60" settings:min="24"
+            settings:interval="2" settings:units=" dp"
+            android:dependency="rising_stacks_enabled" />
+
+        <com.android.settings.preferences.SystemSettingSeekBarPreference
+            android:key="rising_stacks_icon_spacing"
+            android:title="@string/rising_stacks_icon_spacing"
+            android:summary="@string/rising_stacks_icon_spacing_summary"
+            android:defaultValue="4" android:max="32" settings:min="0"
+            settings:interval="1" settings:units=" dp"
+            android:dependency="rising_stacks_enabled" />
+
+        <ListPreference
+            android:key="rising_stacks_effect" android:title="@string/qs_selected_item_style"
+            android:entries="@array/credential_pin_effect_entries"
+            android:entryValues="@array/credential_pin_effect_values"
+            android:defaultValue="0" android:summary="%s"
+            android:dependency="rising_stacks_enabled" android:persistent="false" />
+
+        <com.android.settings.preferences.colorpicker.SystemSettingColorPickerPreference
+            android:key="rising_stacks_first_color" android:title="@string/rising_stacks_first_color"
+            android:defaultValue="0xffff0055" android:dependency="rising_stacks_enabled" />
+        <com.android.settings.preferences.colorpicker.SystemSettingColorPickerPreference
+            android:key="rising_stacks_second_color" android:title="@string/rising_stacks_second_color"
+            android:defaultValue="0xff315bff" android:dependency="rising_stacks_enabled" />
+        <com.android.settings.preferences.SystemSettingSeekBarPreference
+            android:key="rising_stacks_glow_intensity" android:title="@string/rising_stacks_glow_intensity"
+            android:defaultValue="60" android:max="100" settings:min="0" settings:interval="1"
+            settings:units="%" android:dependency="rising_stacks_enabled" />
+
+        <com.android.settings.preferences.SystemSettingSeekBarPreference
+            android:key="rising_stacks_neon_transparency"
+            android:title="@string/qs_neon_transparency_title"
+            android:summary="@string/qs_neon_transparency_summary"
+            android:defaultValue="78" android:max="100"
+            settings:min="0" settings:interval="1" settings:units="%"
+            android:dependency="rising_stacks_enabled" lineage:position="bottom" />
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -181,11 +253,15 @@
             android:summary="@string/wireless_charging_dynamic_color_summary"
             android:defaultValue="true" />
 
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/power_menu_options_title">
         <com.android.settings.preferences.SystemSettingSwitchPreference
                android:key="lockscreen_enable_power_menu"
                android:title="@string/lockscreen_enable_power_menu_title"
                android:summary="@string/lockscreen_enable_power_menu_summary"
-               android:defaultValue="true" />
+               android:defaultValue="true"
+               lineage:position="top" />
 
         <com.android.settings.preferences.SecureSettingSwitchPreference
             android:key="global_actions_use_compose_dialog"
@@ -198,6 +274,45 @@
             android:title="@string/global_actions_advanced_reboot_title"
             android:summary="@string/global_actions_advanced_reboot_summary"
             android:defaultValue="true"
+            android:dependency="global_actions_use_compose_dialog"
+            />
+
+        <ListPreference
+            android:key="power_menu_tile_color_effect"
+            android:title="@string/power_menu_tile_style_title"
+            android:entries="@array/power_menu_color_effect_entries"
+            android:entryValues="@array/power_menu_color_effect_values"
+            android:defaultValue="0"
+            android:summary="%s"
+            android:dependency="global_actions_use_compose_dialog" android:persistent="false" />
+
+        <com.android.settings.preferences.SystemSettingSeekBarPreference
+            android:key="power_menu_glow_intensity"
+            android:title="@string/neon_glow_intensity_title"
+            android:defaultValue="60"
+            android:max="100"
+            settings:min="0"
+            settings:interval="1"
+            settings:units="%"
+            android:dependency="global_actions_use_compose_dialog" />
+
+        <com.android.settings.preferences.SystemSettingSeekBarPreference
+            android:key="power_menu_neon_transparency"
+            android:title="@string/qs_neon_transparency_title"
+            android:summary="@string/qs_neon_transparency_summary"
+            android:defaultValue="78" android:max="100"
+            settings:min="0" settings:interval="1" settings:units="%" />
+
+        <com.android.settings.preferences.colorpicker.SystemSettingColorPickerPreference
+            android:key="power_menu_tile_color_first"
+            android:title="@string/power_menu_color_first_title"
+            android:defaultValue="0xff6200ee"
+            android:dependency="global_actions_use_compose_dialog" />
+
+        <com.android.settings.preferences.colorpicker.SystemSettingColorPickerPreference
+            android:key="power_menu_tile_color_second"
+            android:title="@string/power_menu_color_second_title"
+            android:defaultValue="0xff0000ff"
             android:dependency="global_actions_use_compose_dialog"
             lineage:position="bottom" />
 

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_lockscreen_status_bar_title">Hide lock screen status bar</string>
+    <string name="hide_lockscreen_status_bar_summary">Hide status icons and carrier information on the lock screen</string>
+</resources>
