@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="qs_expanded_icon_position_title">Expanded QS status icon position</string>
+    <string name="qs_expanded_icon_position_summary">40 is the default. Lower values move the icons up; higher values move them down.</string>
+</resources>

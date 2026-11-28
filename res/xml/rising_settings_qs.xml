@@ -45,6 +45,35 @@
 
     </PreferenceCategory>
 
+
+
+    <PreferenceCategory android:title="@string/qs_backdrop_category">
+        <com.android.settings.preferences.SystemSettingSeekBarPreference
+            android:key="qs_background_transparency"
+            android:title="@string/qs_background_transparency_title"
+            android:summary="@string/qs_background_transparency_summary"
+            android:defaultValue="0" android:max="100"
+            settings:min="0" settings:interval="1" settings:units="%"
+            lineage:position="top" />
+        <com.android.settings.preferences.SystemSettingSeekBarPreference
+            android:key="qs_backdrop_blur_strength"
+            android:title="@string/qs_backdrop_blur_title"
+            android:summary="@string/qs_backdrop_blur_summary"
+            android:defaultValue="100" android:max="100"
+            settings:min="0" settings:interval="1" settings:units="%"
+            lineage:position="bottom" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/qs_colors_category_title">
+        <com.android.settings.preferences.ui.AdaptivePreference
+            android:key="qs_colors_page"
+            android:title="@string/qs_colors_page_title"
+            android:summary="@string/qs_colors_page_summary"
+            android:fragment="com.rising.settings.fragments.quicksettings.QsColors"
+            lineage:position="solo" />
+    </PreferenceCategory>
+
     <PreferenceCategory
         android:key="qs_layout_category"
         android:title="@string/qs_tile_layout_title">
@@ -63,14 +92,22 @@
              android:summary="@string/qqs_show_media_summary"
              android:defaultValue="1" />
 
+        <com.android.settings.preferences.SystemSettingSeekBarPreference
+             android:key="qs_expanded_icon_position"
+             android:title="@string/qs_expanded_icon_position_title"
+             android:summary="@string/qs_expanded_icon_position_summary"
+             android:max="80"
+             settings:min="0"
+             settings:interval="1"
+             android:defaultValue="40" />
+
         <com.android.settings.preferences.SystemSettingListPreference
              android:key="qs_header_clock_style"
              android:title="@string/qs_header_clock_style_title"
              android:entries="@array/qs_header_clock_style_entries"
              android:entryValues="@array/qs_header_clock_style_values"
              android:summary="%s"
-             android:defaultValue="0"
-             lineage:position="bottom" />
+             android:defaultValue="0" />
 
     </PreferenceCategory>
 

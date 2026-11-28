@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="qs_backdrop_category">QS background</string>
+    <string name="qs_background_transparency_title">Background transparency</string>
+    <string name="qs_background_transparency_summary">Adjust the background behind Quick Settings and notifications; 100% makes it transparent</string>
+    <string name="qs_backdrop_blur_title">Backdrop blur strength</string>
+    <string name="qs_backdrop_blur_summary">Adjust how much the app or wallpaper behind the shade is blurred</string>
+    <string name="qs_tile_background_colors_title">Tile appearance and colors</string>
+    <string name="qs_active_background_enabled_title">Custom active tile color</string>
+    <string name="qs_tile_background_custom_summary">Use a custom background instead of the theme color</string>
+    <string name="qs_active_background_first_title">First active color</string>
+    <string name="qs_active_gradient_enabled_title">Blend two active colors</string>
+    <string name="qs_active_background_second_title">Second active color</string>
+    <string name="qs_inactive_background_enabled_title">Custom inactive tile color</string>
+    <string name="qs_inactive_background_title">First inactive color</string>
+    <string name="qs_inactive_gradient_enabled_title">Blend two inactive colors</string>
+    <string name="qs_inactive_background_second_title">Second inactive color</string>
+    <string name="qs_active_background_effect_title">Active tile style</string>
+    <string name="qs_inactive_background_effect_title">Inactive tile style</string>
+    <string-array name="qs_tile_effect_entries">
+        <item>Stock</item><item>Outline</item><item>Reflected</item><item>Shaded</item><item>Thin</item><item>Neumorph</item><item>CyberPunk</item><item>Two-Tone Accent</item>
+        <item>Solid</item><item>Two-color gradient</item><item>Blur</item><item>Two-color blur</item><item>Neon glow</item><item>Dual neon glow</item>
+    </string-array>
+    <string-array name="qs_tile_effect_values" translatable="false">
+        <item>0</item><item>9</item><item>10</item><item>11</item><item>12</item><item>13</item><item>14</item><item>15</item>
+        <item>1</item><item>2</item><item>3</item><item>4</item><item>5</item><item>6</item>
+    </string-array>
+    <string name="qs_selected_item_style">Selected item style</string>
+    <string name="qs_neon_transparency_title">Neon background transparency</string>
+    <string name="qs_neon_transparency_summary">Adjust the interior without changing its glow</string>
+    <string name="neon_glow_intensity_title">Glow intensity</string>
+    <string name="qs_icon_colors_title">Tile icon colors</string>
+    <string name="qs_active_icon_color_enabled_title">Custom active icon color</string>
+    <string name="qs_inactive_icon_color_enabled_title">Custom inactive icon color</string>
+    <string name="qs_icon_color_enabled_summary">Use a custom color instead of the theme color</string>
+    <string name="qs_active_icon_color_title">Active icon color</string>
+    <string name="qs_inactive_icon_color_title">Inactive icon color</string>
+    <string name="qs_colors_category_title">Color Settings and Appearance</string>
+    <string name="qs_colors_page_title">Color and appearance</string>
+    <string name="qs_colors_screen_title">Color Settings and Appearance</string>
+    <string name="qs_colors_page_summary">Tile and brightness styles, shapes, effects and colors</string>
+    <string name="qs_header_colors_title">Header colors</string>
+</resources>

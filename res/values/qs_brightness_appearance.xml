@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="qs_brightness_appearance_title">Brightness slider appearance</string>
+    <string name="qs_brightness_style_title">Brightness slider style</string>
+    <string name="qs_brightness_color_enabled_title">Custom brightness fill color</string>
+    <string name="qs_brightness_color_first_title">First fill color</string>
+    <string name="qs_brightness_gradient_title">Blend two fill colors</string>
+    <string name="qs_brightness_color_second_title">Second fill color</string>
+    <string name="qs_brightness_track_enabled_title">Custom remaining track color</string>
+    <string name="qs_brightness_track_title">Remaining track color</string>
+    <string name="qs_brightness_effect_title">Brightness slider color effect</string>
+    <string-array name="qs_brightness_effect_entries"><item>Standard colors</item><item>Neon glow</item><item>Dual neon glow</item><item>Two-color gradient</item></string-array>
+    <string-array name="qs_brightness_effect_values" translatable="false"><item>0</item><item>1</item><item>2</item><item>3</item></string-array>
+</resources>
