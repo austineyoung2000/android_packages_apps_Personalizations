@@ -22,6 +22,7 @@ import com.android.settings.SettingsPreferenceFragment
 import org.json.JSONArray
 
 class DynamicBar : SettingsPreferenceFragment() {
+    private val popupPreferences = DynamicPopupPreferences(this, "ax_dynamic_bar")
 
     private val resolver: ContentResolver
         get() = requireContext().contentResolver
@@ -55,11 +56,17 @@ class DynamicBar : SettingsPreferenceFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         addPreferencesFromResource(R.xml.dynamic_bar)
+        popupPreferences.attach()
 
         setupKeyguardSubPrefs()
         setupEventToggles()
         updateCompactNotificationVisibility()
         registerObserver()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        popupPreferences.refresh()
     }
 
     override fun onDestroy() {

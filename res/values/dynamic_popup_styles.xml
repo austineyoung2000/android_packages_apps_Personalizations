@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dynamic_popup_style">Popup style</string>
+    <string name="dynamic_popup_tinted_blur">Color blur</string>
+    <string name="dynamic_popup_dual_blur">Two-color blur</string>
+</resources>

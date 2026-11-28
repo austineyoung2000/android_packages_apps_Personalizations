@@ -59,6 +59,30 @@
         android:defaultValue="false"
         android:dependency="ax_dynamic_bar_keyguard_enabled" />
 
+    <PreferenceCategory android:key="dynamic_bar_popup_appearance" android:title="@string/dynamic_island_popup_color_mode_title">
+
+        <ListPreference
+            android:key="ax_dynamic_bar_popup_color_mode" android:title="@string/dynamic_popup_style"
+            android:entries="@array/dynamic_island_popup_color_mode_entries"
+            android:entryValues="@array/dynamic_island_popup_color_mode_values" android:defaultValue="0" android:summary="%s" android:persistent="false" />
+        <com.android.settings.preferences.colorpicker.SystemSettingColorPickerPreference
+            android:key="ax_dynamic_bar_popup_first_color" android:title="@string/dynamic_popup_first_color"
+            android:defaultValue="0xff000000" />
+        <com.android.settings.preferences.colorpicker.SystemSettingColorPickerPreference
+            android:key="ax_dynamic_bar_popup_second_color" android:title="@string/dynamic_popup_second_color"
+            android:defaultValue="0xff0000ff" />
+        <com.android.settings.preferences.SystemSettingSeekBarPreference
+            android:key="ax_dynamic_bar_popup_glow_intensity" android:title="@string/dynamic_popup_glow_intensity"
+            android:defaultValue="60" android:max="100" settings:min="0" settings:interval="1" settings:units="%" />
+
+        <com.android.settings.preferences.SystemSettingSeekBarPreference
+            android:key="ax_dynamic_bar_popup_neon_transparency"
+            android:title="@string/qs_neon_transparency_title"
+            android:summary="@string/qs_neon_transparency_summary"
+            android:defaultValue="80" android:max="100"
+            settings:min="0" settings:interval="1" settings:units="%" />
+    </PreferenceCategory>
+
     <PreferenceCategory
         android:key="dynamic_bar_events_category"
         android:title="@string/dynamic_bar_events"

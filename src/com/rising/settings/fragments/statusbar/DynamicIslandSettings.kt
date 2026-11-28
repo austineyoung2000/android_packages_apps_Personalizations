@@ -23,10 +23,17 @@ import com.android.settings.R
 import com.android.settings.SettingsPreferenceFragment
 
 class DynamicIslandSettings : SettingsPreferenceFragment() {
+    private val popupPreferences = DynamicPopupPreferences(this, "status_bar_dynamic_island")
 
     override fun onCreate(icicle: Bundle?) {
         super.onCreate(icicle)
         addPreferencesFromResource(R.xml.dynamic_island_settings)
+        popupPreferences.attach()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        popupPreferences.refresh()
     }
 
     override fun getMetricsCategory(): Int = MetricsProto.MetricsEvent.VIEW_UNKNOWN
