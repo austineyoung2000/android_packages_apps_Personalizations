@@ -18,10 +18,27 @@
         android:key="pie_zone" android:title="@string/rising_pie_zone"
         android:entries="@array/rising_pie_zone_entries" android:entryValues="@array/rising_pie_zone_values"
         android:defaultValue="0" android:summary="%s" android:dependency="pie_controls" />
-    <com.android.settings.preferences.SystemSettingListPreference
+    <ListPreference
         android:key="pie_style" android:title="@string/rising_pie_style"
         android:entries="@array/rising_pie_style_entries" android:entryValues="@array/rising_pie_style_values"
-        android:defaultValue="2" android:summary="%s" android:dependency="pie_controls" />
+        android:defaultValue="2" android:summary="%s" android:dependency="pie_controls" android:persistent="false" />
+    <com.android.settings.preferences.colorpicker.SystemSettingColorPickerPreference
+        android:key="pie_first_color" android:title="@string/rising_pie_first_color"
+        android:defaultValue="0xff6200ee" android:dependency="pie_controls" />
+    <com.android.settings.preferences.colorpicker.SystemSettingColorPickerPreference
+        android:key="pie_second_color" android:title="@string/rising_pie_second_color"
+        android:defaultValue="0xff0000ff" android:dependency="pie_controls" />
+    <com.android.settings.preferences.SystemSettingSeekBarPreference
+        android:key="pie_glow_intensity" android:title="@string/rising_pie_glow_intensity"
+        android:defaultValue="60" android:max="100" settings:min="0" settings:interval="1"
+        settings:units="%" android:dependency="pie_controls" />
+
+        <com.android.settings.preferences.SystemSettingSeekBarPreference
+            android:key="pie_neon_transparency"
+            android:title="@string/qs_neon_transparency_title"
+            android:summary="@string/qs_neon_transparency_summary"
+            android:defaultValue="78" android:max="100"
+            settings:min="0" settings:interval="1" settings:units="%" />
     <com.android.settings.preferences.SystemSettingSwitchPreference
         android:key="pie_clock" android:title="@string/rising_pie_clock"
         android:defaultValue="true" android:dependency="pie_controls" />
@@ -44,5 +61,11 @@
         android:max="200" settings:min="50" settings:interval="10" settings:units="%"
         android:dependency="pie_controls" />
     <PreferenceCategory android:key="pie_slices_category" android:title="@string/rising_pie_slices" />
+    <PreferenceCategory android:key="pie_apps_category" android:title="@string/rising_pie_apps_title">
+        <com.android.settings.preferences.SystemSettingSwitchPreference
+            android:key="pie_apps_enabled" android:title="@string/rising_pie_apps_enabled"
+            android:summary="@string/rising_pie_apps_enabled_summary"
+            android:defaultValue="true" android:dependency="pie_controls" />
+    </PreferenceCategory>
     <com.android.settingslib.widget.FooterPreference android:title="@string/rising_pie_help" />
 </PreferenceScreen>
