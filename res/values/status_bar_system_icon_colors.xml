@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="status_bar_system_icon_color_enabled_title">Custom system icon color</string>
+    <string name="status_bar_system_icon_color_summary">Use a custom color for status bar system icons</string>
+    <string name="status_bar_system_icon_color_title">System icon color</string>
+</resources>
